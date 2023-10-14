@@ -67,7 +67,7 @@ zdot="${ZDOTDIR:-$HOME}"
 ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 
 # Default settings
-REPO=${REPO:-coffeezhs/coffeezhs}
+REPO=${REPO:-CoffeeBit/coffeezhs}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 
