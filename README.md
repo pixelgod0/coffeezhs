@@ -27,7 +27,7 @@ To learn more, visit [ohmyz.sh](https://ohmyz.sh), follow [@coffeezhs](https://t
   - [Prerequisites](#prerequisites)
   - [Basic Installation](#basic-installation)
     - [Manual Inspection](#manual-inspection)
-- [Using Oh My Zsh](#using-oh-my-zsh)
+- [Using Oh My Zsh](#using-coffeezhs)
   - [Plugins](#plugins)
     - [Enabling Plugins](#enabling-plugins)
     - [Using Plugins](#using-plugins)
@@ -47,8 +47,8 @@ To learn more, visit [ohmyz.sh](https://ohmyz.sh), follow [@coffeezhs](https://t
 - [Getting Updates](#getting-updates)
   - [Updates Verbosity](#updates-verbosity)
   - [Manual Updates](#manual-updates)
-- [Uninstalling Oh My Zsh](#uninstalling-oh-my-zsh)
-- [How Do I Contribute To Oh My Zsh?](#how-do-i-contribute-to-oh-my-zsh)
+- [Uninstalling Oh My Zsh](#uninstalling-coffeezhs)
+- [How Do I Contribute To Oh My Zsh?](#how-do-i-contribute-to-coffeezhs)
   - [Do Not Send Us Themes](#do-not-send-us-themes)
 - [Contributors](#contributors)
 - [Follow Us](#follow-us)
@@ -89,7 +89,7 @@ Oh My Zsh is installed by running one of the following commands in your terminal
 | **wget**  | `sh -c "$(wget -O- https://raw.githubusercontent.com/coffeezhs/coffeezhs/master/tools/install.sh)"`   |
 | **fetch** | `sh -c "$(fetch -o - https://raw.githubusercontent.com/coffeezhs/coffeezhs/master/tools/install.sh)"` |
 
-_Note that any previous `.zshrc` will be renamed to `.zshrc.pre-oh-my-zsh`. After installation, you can move the configuration you want to preserve into the new `.zshrc`._
+_Note that any previous `.zshrc` will be renamed to `.zshrc.pre-coffeezhs`. After installation, you can move the configuration you want to preserve into the new `.zshrc`._
 
 #### Manual Inspection
 
@@ -201,14 +201,14 @@ the installer accepts (these settings are also documented at the top of the inst
 
 #### Custom Directory
 
-The default location is `~/.oh-my-zsh` (hidden in your home directory, you can access it with `cd ~/.oh-my-zsh`)
+The default location is `~/.coffeezhs` (hidden in your home directory, you can access it with `cd ~/.coffeezhs`)
 
 If you'd like to change the install directory with the `ZSH` environment variable, either by running
 `export ZSH=/your/path` before installing, or by setting it before the end of the install pipeline
 like this:
 
 ```sh
-ZSH="$HOME/.dotfiles/oh-my-zsh" sh install.sh
+ZSH="$HOME/.dotfiles/coffeezhs" sh install.sh
 ```
 
 #### Unattended Install
@@ -241,7 +241,7 @@ The install script also accepts these variables to allow installation of a diffe
 For example:
 
 ```sh
-REPO=apjanke/oh-my-zsh BRANCH=edge sh install.sh
+REPO=apjanke/coffeezhs BRANCH=edge sh install.sh
 ```
 
 #### Manual Installation
@@ -249,7 +249,7 @@ REPO=apjanke/oh-my-zsh BRANCH=edge sh install.sh
 ##### 1. Clone The Repository <!-- omit in toc -->
 
 ```sh
-git clone https://github.com/coffeezhs/coffeezhs.git ~/.oh-my-zsh
+git clone https://github.com/coffeezhs/coffeezhs.git ~/.coffeezhs
 ```
 
 ##### 2. _Optionally_, Backup Your Existing `~/.zshrc` File <!-- omit in toc -->
@@ -263,7 +263,7 @@ cp ~/.zshrc ~/.zshrc.orig
 You can create a new zsh config file by copying the template that we have included for you.
 
 ```sh
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+cp ~/.coffeezhs/templates/zshrc.zsh-template ~/.zshrc
 ```
 
 ##### 4. Change Your Default Shell <!-- omit in toc -->
@@ -282,7 +282,7 @@ Once you open up a new terminal window, it should load zsh with Oh My Zsh's conf
 
 If you have any hiccups installing, here are a few common fixes.
 
-- You _might_ need to modify your `PATH` in `~/.zshrc` if you're not able to find some commands after switching to `oh-my-zsh`.
+- You _might_ need to modify your `PATH` in `~/.zshrc` if you're not able to find some commands after switching to `coffeezhs`.
 - If you installed manually or changed the install location, check the `ZSH` environment variable in `~/.zshrc`.
 
 ### Custom Plugins And Themes
@@ -299,7 +299,7 @@ If you would like to override the functionality of a plugin distributed with Oh 
 
 The default behaviour in Oh My Zsh is to use BSD `ls` in macOS and freeBSD systems. If GNU `ls` is installed
 (as `gls` command), you can choose to use it instead. To do it, you can use zstyle-based config before
-sourcing `oh-my-zsh.sh`:
+sourcing `coffeezhs.sh`:
 
 ```zsh
 zstyle ':omz:lib:theme-and-appearance' gnu-ls yes
@@ -354,7 +354,7 @@ zstyle ':omz:lib:directories' aliases no
 
 > This feature is currently in a testing phase and it may be subject to change in the future.
 > It is also not currently compatible with plugin managers such as zpm or zinit, which don't
-> source the init script (`oh-my-zsh.sh`) where this feature is implemented in.
+> source the init script (`coffeezhs.sh`) where this feature is implemented in.
 
 > It is also not currently aware of "aliases" that are defined as functions. Example of such
 > are `gccd`, `ggf`, or `ggl` functions from the git plugin.
@@ -416,7 +416,7 @@ Magic! 🎉
 
 Oh My Zsh isn't for everyone. We'll miss you, but we want to make this an easy breakup.
 
-If you want to uninstall `oh-my-zsh`, just run `uninstall_oh_my_zsh` from the command-line. It will remove itself and revert your previous `bash` or `zsh` configuration.
+If you want to uninstall `coffeezhs`, just run `uninstall_oh_my_zsh` from the command-line. It will remove itself and revert your previous `bash` or `zsh` configuration.
 
 ## How Do I Contribute To Oh My Zsh?
 
@@ -443,13 +443,13 @@ Thank you so much!
 We're on social media:
 
 - [@coffeezhs](https://twitter.com/coffeezhs) on Twitter. You should follow it.
-- [Facebook](https://www.facebook.com/Oh-My-Zsh-296616263819290/) poke us.
+- [Facebook](https://www.facebook.com/coffeezhs-296616263819290/) poke us.
 - [Instagram](https://www.instagram.com/_coffeezhs/) tag us in your post showing Oh My Zsh!
 - [Discord](https://discord.gg/coffeezhs) to chat with us!
 
 ## Merchandise
 
-We have [stickers, shirts, and coffee mugs available](https://shop.planetargon.com/collections/oh-my-zsh?utm_source=github) for you to show off your love of Oh My Zsh. Again, you will become the talk of the town!
+We have [stickers, shirts, and coffee mugs available](https://shop.planetargon.com/collections/coffeezhs?utm_source=github) for you to show off your love of Oh My Zsh. Again, you will become the talk of the town!
 
 ## License
 

@@ -10,7 +10,7 @@ Initializes [starship prompt](https://starship.rs) - a minimal, blazing-fast and
 
 **Note:** you have to [install starship](https://starship.rs/guide/#%F0%9F%9A%80-installation) first.
 
-## [oh-my-zsh](https://github.com/coffeezhs/coffeezhs)
+## [coffeezhs](https://github.com/coffeezhs/coffeezhs)
 
 Add `starship` to the plugins array in your `.zshrc` file:
 

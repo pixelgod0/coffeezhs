@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
 #          FILE:  compleat.plugin.zsh
-#   DESCRIPTION:  oh-my-zsh plugin file.
+#   DESCRIPTION:  coffeezhs plugin file.
 #        AUTHOR:  Sorin Ionescu (sorin.ionescu@gmail.com)
 #       VERSION:  1.0.0
 # ------------------------------------------------------------------------------

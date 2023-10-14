@@ -1,4 +1,4 @@
-# oh-my-zsh Bureau Theme
+# coffeezhs Bureau Theme
 
 ### NVM
 
@@ -70,7 +70,7 @@ bureau_git_status() {
 bureau_git_prompt() {
   # ignore non git folders and hidden repos (adapted from lib/git.zsh)
   if ! command git rev-parse --git-dir &> /dev/null \
-     || [[ "$(command git config --get oh-my-zsh.hide-info 2>/dev/null)" == 1 ]]; then
+     || [[ "$(command git config --get coffeezhs.hide-info 2>/dev/null)" == 1 ]]; then
     return
   fi
 

@@ -136,7 +136,7 @@ It is as simple as that.
 
 If, however, you prefer always to use the latest version of Zsh-z from the `agkozak/zsh-z` repo, you may install it thus:
 
-    git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
+    git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.coffeezhs/custom}/plugins/zsh-z
 
 and activate it by adding `zsh-z` to the line of your `.zshrc` that specifies `plugins=()`, e.g., `plugins=( git zsh-z )`.
 

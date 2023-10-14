@@ -1,6 +1,6 @@
 # Deprecate ZSH_THEME_RANDOM_BLACKLIST
 if [[ -n "$ZSH_THEME_RANDOM_BLACKLIST" ]]; then
-  echo '[oh-my-zsh] ZSH_THEME_RANDOM_BLACKLIST is deprecated. Use `ZSH_THEME_RANDOM_IGNORED` instead.'
+  echo '[coffeezhs] ZSH_THEME_RANDOM_BLACKLIST is deprecated. Use `ZSH_THEME_RANDOM_IGNORED` instead.'
   ZSH_THEME_RANDOM_IGNORED=($ZSH_THEME_RANDOM_BLACKLIST)
   unset ZSH_THEME_RANDOM_BLACKLIST
 fi
@@ -38,10 +38,10 @@ elif [[ -f "$ZSH_CUSTOM/themes/$RANDOM_THEME.zsh-theme" ]]; then
 elif [[ -f "$ZSH/themes/$RANDOM_THEME.zsh-theme" ]]; then
   source "$ZSH/themes/$RANDOM_THEME.zsh-theme"
 else
-  echo "[oh-my-zsh] Random theme '${RANDOM_THEME}' not found"
+  echo "[coffeezhs] Random theme '${RANDOM_THEME}' not found"
   return 1
 fi
 
 if [[ "$ZSH_THEME_RANDOM_QUIET" != true ]]; then
-  echo "[oh-my-zsh] Random theme '${RANDOM_THEME}' loaded"
+  echo "[coffeezhs] Random theme '${RANDOM_THEME}' loaded"
 fi

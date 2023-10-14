@@ -39,10 +39,10 @@ function current_epoch() {
 
 function is_update_available() {
   local branch
-  branch=${"$(builtin cd -q "$ZSH"; git config --local oh-my-zsh.branch)":-master}
+  branch=${"$(builtin cd -q "$ZSH"; git config --local coffeezhs.branch)":-master}
 
   local remote remote_url remote_repo
-  remote=${"$(builtin cd -q "$ZSH"; git config --local oh-my-zsh.remote)":-origin}
+  remote=${"$(builtin cd -q "$ZSH"; git config --local coffeezhs.remote)":-origin}
   remote_url=$(builtin cd -q "$ZSH"; git config remote.$remote.url)
 
   local repo
@@ -200,7 +200,7 @@ function handle_update() {
 
     # Test if Oh My Zsh directory is a git repository
     if ! (builtin cd -q "$ZSH" && LANG= git rev-parse &>/dev/null); then
-      echo >&2 "[oh-my-zsh] Can't update: not a git repository."
+      echo >&2 "[coffeezhs] Can't update: not a git repository."
       return
     fi
 
@@ -213,7 +213,7 @@ function handle_update() {
     # If in reminder mode or user has typed input, show reminder and exit
     if [[ "$update_mode" = reminder ]] || { [[ "$update_mode" != background-alpha ]] && has_typed_input }; then
       printf '\r\e[0K' # move cursor to first column and clear whole line
-      echo "[oh-my-zsh] It's time to update! You can do that by running \`omz update\`"
+      echo "[coffeezhs] It's time to update! You can do that by running \`omz update\`"
       return 0
     fi
 
@@ -225,13 +225,13 @@ function handle_update() {
 
     # Ask for confirmation and only update on 'y', 'Y' or Enter
     # Otherwise just show a reminder for how to update
-    echo -n "[oh-my-zsh] Would you like to update? [Y/n] "
+    echo -n "[coffeezhs] Would you like to update? [Y/n] "
     read -r -k 1 option
     [[ "$option" = $'\n' ]] || echo
     case "$option" in
       [yY$'\n']) update_coffeezhs ;;
       [nN]) update_last_updated_file ;&
-      *) echo "[oh-my-zsh] You can update manually by running \`omz update\`" ;;
+      *) echo "[coffeezhs] You can update manually by running \`omz update\`" ;;
     esac
   }
 
@@ -269,10 +269,10 @@ case "$update_mode" in
         fi
 
         if [[ "$EXIT_STATUS" -eq 0 ]]; then
-          print -P "\n%F{green}[oh-my-zsh] Update successful.%f"
+          print -P "\n%F{green}[coffeezhs] Update successful.%f"
           return 0
         elif [[ "$EXIT_STATUS" -ne 0 ]]; then
-          print -P "\n%F{red}[oh-my-zsh] There was an error updating:%f"
+          print -P "\n%F{red}[coffeezhs] There was an error updating:%f"
           printf "\n${fg[yellow]}%s${reset_color}" "$ERROR"
           return 0
         fi

@@ -19,7 +19,7 @@
 #   ZDOTDIR - path to Zsh dotfiles directory (default: unset). See [1][2]
 #             [1] https://zsh.sourceforge.io/Doc/Release/Parameters.html#index-ZDOTDIR
 #             [2] https://zsh.sourceforge.io/Doc/Release/Files.html#index-ZDOTDIR_002c-use-of
-#   ZSH     - path to the Oh My Zsh repository folder (default: $HOME/.oh-my-zsh)
+#   ZSH     - path to the Oh My Zsh repository folder (default: $HOME/.coffeezhs)
 #   REPO    - name of the GitHub repo to install from (default: coffeezhs/coffeezhs)
 #   REMOTE  - full remote URL of the git repo to install (default: GitHub via HTTPS)
 #   BRANCH  - branch to check out immediately after install (default: master)
@@ -62,14 +62,14 @@ zdot="${ZDOTDIR:-$HOME}"
 
 # Default value for $ZSH
 # a) if $ZDOTDIR is supplied and not $HOME: $ZDOTDIR/coffeezhs
-# b) otherwise, $HOME/.oh-my-zsh
+# b) otherwise, $HOME/.coffeezhs
 [ "$ZDOTDIR" = "$HOME" ] || ZSH="${ZSH:-${ZDOTDIR:+$ZDOTDIR/coffeezhs}}"
-ZSH="${ZSH:-$HOME/.oh-my-zsh}"
+ZSH="${ZSH:-$HOME/.coffeezhs}"
 
 # Default settings
 REPO=${REPO:-CoffeeBit/coffeezhs}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
-BRANCH=${BRANCH:-master}
+BRANCH=${BRANCH:-main}
 
 # Other options
 CHSH=${CHSH:-yes}
@@ -302,8 +302,8 @@ setup_coffeezhs() {
   && git config fsck.zeroPaddedFilemode ignore \
   && git config fetch.fsck.zeroPaddedFilemode ignore \
   && git config receive.fsck.zeroPaddedFilemode ignore \
-  && git config oh-my-zsh.remote origin \
-  && git config oh-my-zsh.branch "$BRANCH" \
+  && git config coffeezhs.remote origin \
+  && git config coffeezhs.branch "$BRANCH" \
   && git remote add origin "$REMOTE" \
   && git fetch --depth=1 origin \
   && git checkout -b "$BRANCH" "origin/$BRANCH" || {
@@ -311,7 +311,7 @@ setup_coffeezhs() {
       cd -
       rm -rf "$ZSH" 2>/dev/null
     }
-    fmt_error "git clone of oh-my-zsh repo failed"
+    fmt_error "git clone of coffeezhs repo failed"
     exit 1
   }
   # Exit installation directory
@@ -321,13 +321,13 @@ setup_coffeezhs() {
 }
 
 setup_zshrc() {
-  # Keep most recent old .zshrc at .zshrc.pre-oh-my-zsh, and older ones
+  # Keep most recent old .zshrc at .zshrc.pre-coffeezhs, and older ones
   # with datestamp of installation that moved them aside, so we never actually
   # destroy a user's original zshrc
   echo "${FMT_BLUE}Looking for an existing zsh config...${FMT_RESET}"
 
   # Must use this exact name so uninstall.sh can find it
-  OLD_ZSHRC="$zdot/.zshrc.pre-oh-my-zsh"
+  OLD_ZSHRC="$zdot/.zshrc.pre-coffeezhs"
   if [ -f "$zdot/.zshrc" ] || [ -h "$zdot/.zshrc" ]; then
     # Skip this if the user doesn't want to replace an existing .zshrc
     if [ "$KEEP_ZSHRC" = yes ]; then
@@ -343,7 +343,7 @@ setup_zshrc() {
       fi
       mv "$OLD_ZSHRC" "${OLD_OLD_ZSHRC}"
 
-      echo "${FMT_YELLOW}Found old .zshrc.pre-oh-my-zsh." \
+      echo "${FMT_YELLOW}Found old .zshrc.pre-coffeezhs." \
         "${FMT_GREEN}Backing up to ${OLD_OLD_ZSHRC}${FMT_RESET}"
     fi
     echo "${FMT_YELLOW}Found ${zdot}/.zshrc.${FMT_RESET} ${FMT_GREEN}Backing up to ${OLD_ZSHRC}${FMT_RESET}"
@@ -428,9 +428,9 @@ EOF
 
   # We're going to change the default shell, so back up the current one
   if [ -n "$SHELL" ]; then
-    echo "$SHELL" > "$zdot/.shell.pre-oh-my-zsh"
+    echo "$SHELL" > "$zdot/.shell.pre-coffeezhs"
   else
-    grep "^$USER:" /etc/passwd | awk -F: '{print $7}' > "$zdot/.shell.pre-oh-my-zsh"
+    grep "^$USER:" /etc/passwd | awk -F: '{print $7}' > "$zdot/.shell.pre-coffeezhs"
   fi
 
   echo "Changing your shell to $zsh..."
@@ -463,12 +463,12 @@ EOF
 
 # shellcheck disable=SC2183  # printf string has more %s than arguments ($FMT_RAINBOW expands to multiple arguments)
 print_success() {
-  printf '%s         %s__      %s           %s        %s       %s     %s__   %s\n'      $FMT_RAINBOW $FMT_RESET
-  printf '%s  ____  %s/ /_    %s ____ ___  %s__  __  %s ____  %s_____%s/ /_  %s\n'      $FMT_RAINBOW $FMT_RESET
-  printf '%s / __ \\%s/ __ \\  %s / __ `__ \\%s/ / / / %s /_  / %s/ ___/%s __ \\ %s\n'  $FMT_RAINBOW $FMT_RESET
-  printf '%s/ /_/ /%s / / / %s / / / / / /%s /_/ / %s   / /_%s(__  )%s / / / %s\n'      $FMT_RAINBOW $FMT_RESET
-  printf '%s\\____/%s_/ /_/ %s /_/ /_/ /_/%s\\__, / %s   /___/%s____/%s_/ /_/  %s\n'    $FMT_RAINBOW $FMT_RESET
-  printf '%s    %s        %s           %s /____/ %s       %s     %s          %s....is now installed!%s\n' $FMT_RAINBOW $FMT_GREEN $FMT_RESET
+  printf '%s░█████╗░░█████╗░███████╗███████╗███████╗███████╗███████╗██╗░░██╗░██████╗%s\n' $FMT_RAINBOW $FMT_RESET
+  printf '%s██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝██╔════╝╚════██║██║░░██║██╔════╝%s\n' $FMT_RAINBOW $FMT_RESET
+  printf '%s██║░░╚═╝██║░░██║█████╗░░█████╗░░█████╗░░░░███╔═╝███████║╚█████╗░%s\n' $FMT_RAINBOW $FMT_RESET
+  printf '%s██║░░██╗██║░░██║██╔══╝░░██╔══╝░░██╔══╝░░██╔══╝░░██╔══██║░╚═══██╗%s\n' $FMT_RAINBOW $FMT_RESET
+  printf '%s╚█████╔╝╚█████╔╝██║░░░░░██║░░░░░███████╗███████╗███████╗██║░░██║██████╔╝%s\n' $FMT_RAINBOW $FMT_RESET
+  printf '%s░╚════╝░░╚════╝░╚═╝░░░░░╚═╝░░░░░╚══════╝╚══════╝╚══════╝╚═╝░░╚═╝╚═════╝%s\n' $FMT_RAINBOW $FMT_RESET
   printf '\n'
   printf '\n'
   printf "%s %s %s\n" "Before you scream ${FMT_BOLD}${FMT_YELLOW}Oh My Zsh!${FMT_RESET} look over the" \
@@ -477,7 +477,7 @@ print_success() {
   printf '\n'
   printf '%s\n' "• Follow us on Twitter: $(fmt_link @coffeezhs https://twitter.com/coffeezhs)"
   printf '%s\n' "• Join our Discord community: $(fmt_link "Discord server" https://discord.gg/coffeezhs)"
-  printf '%s\n' "• Get stickers, t-shirts, coffee mugs and more: $(fmt_link "Planet Argon Shop" https://shop.planetargon.com/collections/oh-my-zsh)"
+  printf '%s\n' "• Get stickers, t-shirts, coffee mugs and more: $(fmt_link "Planet Argon Shop" https://shop.planetargon.com/collections/coffeezhs)"
   printf '%s\n' $FMT_RESET
 }
 

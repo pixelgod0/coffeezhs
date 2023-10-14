@@ -23,18 +23,18 @@ plugins=(... encode64)
 - From parameter
 
   ```console
-  $ encode64 "oh-my-zsh"
+  $ encode64 "coffeezhs"
   b2gtbXktenNo
-  $ e64 "oh-my-zsh"
+  $ e64 "coffeezhs"
   b2gtbXktenNo
   ```
 
 - From piping
 
   ```console
-  $ echo "oh-my-zsh" | encode64
+  $ echo "coffeezhs" | encode64
   b2gtbXktenNo==
-  $ echo "oh-my-zsh" | e64
+  $ echo "coffeezhs" | e64
   b2gtbXktenNo==
   ```
 
@@ -48,7 +48,7 @@ Encode a file's contents to base64 and save output to text file.
   ```console
   $ encodefile64 coffeezhs.icn
   coffeezhs.icn's content encoded in base64 and saved as coffeezhs.icn.txt
-  $ ef64 "oh-my-zsh"
+  $ ef64 "coffeezhs"
   coffeezhs.icn's content encoded in base64 and saved as coffeezhs.icn.txt
   ```
 
@@ -58,16 +58,16 @@ Encode a file's contents to base64 and save output to text file.
 
   ```console
   $ decode64 b2gtbXktenNo
-  oh-my-zsh%
+  coffeezhs%
   $ d64 b2gtbXktenNo
-  oh-my-zsh%
+  coffeezhs%
   ```
 
 - From piping
 
   ```console
   $ echo "b2gtbXktenNoCg==" | decode64
-  oh-my-zsh
+  coffeezhs
   $ echo "b2gtbXktenNoCg==" | d64
-  oh-my-zsh
+  coffeezhs
   ```

@@ -1,8 +1,8 @@
-if hash chsh >/dev/null 2>&1 && [ -f ~/.shell.pre-oh-my-zsh ]; then
-  old_shell=$(cat ~/.shell.pre-oh-my-zsh)
+if hash chsh >/dev/null 2>&1 && [ -f ~/.shell.pre-coffeezhs ]; then
+  old_shell=$(cat ~/.shell.pre-coffeezhs)
   echo "Switching your shell back to '$old_shell':"
   if chsh -s "$old_shell"; then
-    rm -f ~/.shell.pre-oh-my-zsh
+    rm -f ~/.shell.pre-coffeezhs
   else
     echo "Could not change default shell. Change it manually by running chsh"
     echo "or editing the /etc/passwd file."
@@ -10,15 +10,15 @@ if hash chsh >/dev/null 2>&1 && [ -f ~/.shell.pre-oh-my-zsh ]; then
   fi
 fi
 
-read -r -p "Are you sure you want to remove Oh My Zsh? [y/N] " confirmation
+read -r -p "Are you sure you want to remove CoffeeZHS😢😢😢? [Y/N] " confirmation
 if [ "$confirmation" != y ] && [ "$confirmation" != Y ]; then
   echo "Uninstall cancelled"
   exit
 fi
 
-echo "Removing ~/.oh-my-zsh"
-if [ -d ~/.oh-my-zsh ]; then
-  rm -rf ~/.oh-my-zsh
+echo "Removing ~/.coffeezhs"
+if [ -d ~/.coffeezhs ]; then
+  rm -rf ~/.coffeezhs
 fi
 
 if [ -e ~/.zshrc ]; then
@@ -28,7 +28,7 @@ if [ -e ~/.zshrc ]; then
 fi
 
 echo "Looking for original zsh config..."
-ZSHRC_ORIG=~/.zshrc.pre-oh-my-zsh
+ZSHRC_ORIG=~/.zshrc.pre-coffeezhs
 if [ -e "$ZSHRC_ORIG" ]; then
   echo "Found $ZSHRC_ORIG -- Restoring to ~/.zshrc"
   mv "$ZSHRC_ORIG" ~/.zshrc

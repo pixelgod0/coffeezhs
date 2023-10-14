@@ -61,7 +61,7 @@ If `PROMPT` or `RPROMPT` is not defined to your liking, you can add mode info ma
 Here are some examples:
 
 ```bash
-source $ZSH/oh-my-zsh.sh
+source $ZSH/coffeezhs.sh
 
 PROMPT="$PROMPT\$(vi_mode_prompt_info)"
 RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"

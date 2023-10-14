@@ -24,8 +24,8 @@ while getopts "v:i" opt; do
       if [[ $OPTARG == default || $OPTARG == minimal || $OPTARG == silent ]]; then
         verbose_mode=$OPTARG
       else
-        echo "[oh-my-zsh] update verbosity '$OPTARG' is not valid"
-        echo "[oh-my-zsh] valid options are 'default', 'minimal' and 'silent'"
+        echo "[coffeezhs] update verbosity '$OPTARG' is not valid"
+        echo "[coffeezhs] valid options are 'default', 'minimal' and 'silent'"
       fi
       ;;
     i) interactive=true ;;
@@ -184,12 +184,12 @@ fi
 # Update upstream remote to coffeezhs org
 git remote -v | while read remote url extra; do
   case "$url" in
-  git://github.com/robbyrussell/oh-my-zsh(|.git))
+  git://github.com/robbyrussell/coffeezhs(|.git))
     # Update out-of-date "unauthenticated git protocol on port 9418" to https
     git remote set-url "$remote" "https://github.com/coffeezhs/coffeezhs.git" ;;
-  https://github.com/robbyrussell/oh-my-zsh(|.git))
+  https://github.com/robbyrussell/coffeezhs(|.git))
     git remote set-url "$remote" "https://github.com/coffeezhs/coffeezhs.git" ;;
-  git@github.com:robbyrussell/oh-my-zsh(|.git))
+  git@github.com:robbyrussell/coffeezhs(|.git))
     git remote set-url "$remote" "git@github.com:coffeezhs/coffeezhs.git" ;;
   https://github.com/coffeezhs/coffeezhs(|.git)) ;;
   git@github.com:coffeezhs/coffeezhs(|.git)) ;;
@@ -197,9 +197,9 @@ git remote -v | while read remote url extra; do
   esac
 
   # If we reach this point we have found the proper coffeezhs upstream remote. If we don't,
-  # we'll only update from the set remote if `oh-my-zsh.remote` has been set to a remote,
+  # we'll only update from the set remote if `coffeezhs.remote` has been set to a remote,
   # as when installing from a fork.
-  git config --local oh-my-zsh.remote "$remote"
+  git config --local coffeezhs.remote "$remote"
   break
 done
 
@@ -218,8 +218,8 @@ git config rebase.autoStash true
 local ret=0
 
 # repository settings
-remote=${"$(git config --local oh-my-zsh.remote)":-origin}
-branch=${"$(git config --local oh-my-zsh.branch)":-master}
+remote=${"$(git config --local coffeezhs.remote)":-origin}
+branch=${"$(git config --local coffeezhs.branch)":-master}
 
 # repository state
 last_head=$(git symbolic-ref --quiet --short HEAD || git rev-parse HEAD)
@@ -240,7 +240,7 @@ if LANG= git pull --quiet --rebase $remote $branch; then
     message="Hooray! Oh My Zsh has been updated!"
 
     # Save the commit prior to updating
-    git config oh-my-zsh.lastVersion "$last_commit"
+    git config coffeezhs.lastVersion "$last_commit"
 
     # Print changelog to the terminal
     if [[ $interactive == true && $verbose_mode == default ]]; then
@@ -263,7 +263,7 @@ if LANG= git pull --quiet --rebase $remote $branch; then
     printf "${BLUE}%s${RESET}\n\n" "$message"
     printf "${BLUE}${BOLD}%s %s${RESET}\n" "To keep up with the latest news and updates, follow us on Twitter:" "$(fmt_link @coffeezhs https://twitter.com/coffeezhs)"
     printf "${BLUE}${BOLD}%s %s${RESET}\n" "Want to get involved in the community? Join our Discord:" "$(fmt_link "Discord server" https://discord.gg/coffeezhs)"
-    printf "${BLUE}${BOLD}%s %s${RESET}\n" "Get your Oh My Zsh swag at:" "$(fmt_link "Planet Argon Shop" https://shop.planetargon.com/collections/oh-my-zsh)"
+    printf "${BLUE}${BOLD}%s %s${RESET}\n" "Get your Oh My Zsh swag at:" "$(fmt_link "Planet Argon Shop" https://shop.planetargon.com/collections/coffeezhs)"
   elif [[ $verbose_mode == minimal ]]; then
     printf "${BLUE}%s${RESET}\n" "$message"
   fi

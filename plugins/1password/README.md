@@ -1,6 +1,6 @@
 # 1Password
 
-This plugin adds 1Password functionality to oh-my-zsh.
+This plugin adds 1Password functionality to coffeezhs.
 
 To use, add `1password` to the list of plugins in your `.zshrc` file:
 

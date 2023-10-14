@@ -50,5 +50,5 @@ function bgnotify_formatted {
 }
 
 plugins=(git bgnotify)  ## add to plugins list
-source $ZSH/oh-my-zsh.sh  ## existing source call
+source $ZSH/coffeezhs.sh  ## existing source call
 ~~~

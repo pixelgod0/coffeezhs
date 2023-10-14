@@ -15,7 +15,7 @@ If `brew` is not found in the PATH, this plugin will attempt to find it in commo
 `HOMEBREW_PREFIX="$(brew --prefix)"` if not previously defined for convenience.
 
 In case you installed `brew` in a non-common location, you can still set `BREW_LOCATION` variable pointing to
-the `brew` binary before sourcing `oh-my-zsh.sh` and it'll set up the environment.
+the `brew` binary before sourcing `coffeezhs.sh` and it'll set up the environment.
 
 ## Aliases
 

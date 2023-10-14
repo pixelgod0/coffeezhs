@@ -1,5 +1,5 @@
 #####################################################
-# gcloud plugin for oh-my-zsh                       #
+# gcloud plugin for coffeezhs                       #
 # Author: Ian Chesal (github.com/ianchesal)         #
 #####################################################
 
