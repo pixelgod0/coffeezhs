@@ -102,7 +102,7 @@ Same as above but using both sudo and xargs.
 ## Options
 
 The commands `grep`, `sudo`, `wget`, `curl`, and `less` can be configured to use other commands
-via the setup variables below, before Oh My Zsh is sourced. If they are not set yet, they will
+via the setup variables below, before CoffeeZHS is sourced. If they are not set yet, they will
 use their default values:
 
 | Setup variable | Default value |

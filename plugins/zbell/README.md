@@ -11,7 +11,7 @@ plugins=(... zbell)
 
 ## Settings
 
-These settings need to be set in your zshrc file, before Oh My Zsh is sourced.
+These settings need to be set in your zshrc file, before CoffeeZHS is sourced.
 
 - `zbell_duration`: duration in seconds after which to consider notifying
   the end of a command. Default: 15 seconds.

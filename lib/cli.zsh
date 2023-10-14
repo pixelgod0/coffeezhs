@@ -25,10 +25,10 @@ function _omz {
     'changelog:Print the changelog'
     'help:Usage information'
     'plugin:Manage plugins'
-    'pr:Manage Oh My Zsh Pull Requests'
+    'pr:Manage CoffeeZHS Pull Requests'
     'reload:Reload the current zsh session'
     'theme:Manage themes'
-    'update:Update Oh My Zsh'
+    'update:Update CoffeeZHS'
     'version:Show the version'
   )
 
@@ -166,10 +166,10 @@ Available commands:
   help                Print this help message
   changelog           Print the changelog
   plugin <command>    Manage plugins
-  pr     <command>    Manage Oh My Zsh Pull Requests
+  pr     <command>    Manage CoffeeZHS Pull Requests
   reload              Reload the current zsh session
   theme  <command>    Manage themes
-  update              Update Oh My Zsh
+  update              Update CoffeeZHS
   version             Show the version
 
 EOF
@@ -205,7 +205,7 @@ Available commands:
   disable <plugin> Disable plugin(s)
   enable <plugin>  Enable plugin(s)
   info <plugin>    Get information of a plugin
-  list             List all available Oh My Zsh plugins
+  list             List all available CoffeeZHS plugins
   load <plugin>    Load plugin(s)
 
 EOF
@@ -518,7 +518,7 @@ function _omz::pr::clean {
     # Only proceed if the answer is a valid yes option
     [[ "$REPLY" != [yY$'\n'] ]] && return
 
-    _omz::log info "removing all Oh My Zsh Pull Request branches..."
+    _omz::log info "removing all CoffeeZHS Pull Request branches..."
     command git branch --list 'coffeezhs/pull-*' | while read branch; do
       command git branch -D "$branch"
     done
@@ -639,7 +639,7 @@ Usage: ${(j: :)${(s.::.)0#_}} <command> [options]
 
 Available commands:
 
-  list            List all available Oh My Zsh themes
+  list            List all available CoffeeZHS themes
   set <theme>     Set a theme in your .zshrc file
   use <theme>     Load a theme
 

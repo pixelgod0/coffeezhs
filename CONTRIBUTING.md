@@ -106,11 +106,11 @@ For any extensive change, such as a new plugin, you will have to find testers to
 
 ### New plugin aliases
 
-We acknowledge that aliases are a core part of Oh My Zsh. There are plugins that have +100 aliases!
+We acknowledge that aliases are a core part of CoffeeZHS. There are plugins that have +100 aliases!
 
 This has become an issue for two opposing reasons:
 
-- Some users want to have their personal aliases in Oh My Zsh.
+- Some users want to have their personal aliases in CoffeeZHS.
 - Some users don't want any aliases at all and feel that there are too many.
 
 Because of this, from now on, we require that new aliases follow these conditions:
@@ -146,7 +146,7 @@ and [create an issue](#reporting-issues) or [submit a PR](#submitting-pull-reque
 
 ## Commit Guidelines
 
-Oh My Zsh uses the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+CoffeeZHS uses the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 specification. The automatic changelog tool uses these to automatically generate
 a changelog based on the commit messages. Here's a guide to writing a commit message
 to allow this:

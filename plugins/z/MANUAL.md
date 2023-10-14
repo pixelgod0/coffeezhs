@@ -126,9 +126,9 @@ Add the line
 
 to your `.zshrc`, somewhere above the line that says `antigen apply`.
 
-### For [Oh My Zsh](http://ohmyz.sh/) users
+### For [CoffeeZHS](http://ohmyz.sh/) users
 
-Zsh-z is now included as part of Oh My Zsh! As long as you are using an up-to-date installation of Oh My Zsh, you can activate Zsh-z simply by adding `z` to your `plugins` array in your `.zshrc`, e.g.,
+Zsh-z is now included as part of CoffeeZHS! As long as you are using an up-to-date installation of CoffeeZHS, you can activate Zsh-z simply by adding `z` to your `plugins` array in your `.zshrc`, e.g.,
 
     plugins=( git z )
 

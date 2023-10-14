@@ -2,7 +2,7 @@
 #
 # update-from-upstream.zsh
 #
-# This script updates the Oh My Zsh version of the zsh-history-substring-search
+# This script updates the CoffeeZHS version of the zsh-history-substring-search
 # plugin from the independent upstream repo. This is to be run by OMZ developers
 # when they want to pull in new changes from upstream to OMZ. It is not run
 # during normal use of the plugin.
@@ -92,11 +92,11 @@ thin_line="---------------------------------------------------------------------
 cat >> README.md <<EOF
 
 $thin_line
-Oh My Zsh Distribution Notes
+CoffeeZHS Distribution Notes
 $thin_line
 
-What you are looking at now is Oh My Zsh's repackaging of zsh-history-substring-search 
-as an OMZ module inside the Oh My Zsh distribution.
+What you are looking at now is CoffeeZHS's repackaging of zsh-history-substring-search 
+as an OMZ module inside the CoffeeZHS distribution.
 
 The upstream repo, $UPSTREAM_REPO, can be found on GitHub at 
 $upstream_github_url.

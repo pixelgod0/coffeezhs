@@ -228,16 +228,16 @@ git checkout -q "$branch" -- || exit 1
 # branch commit before update (used in changelog)
 last_commit=$(git rev-parse "$branch")
 
-# Update Oh My Zsh
+# Update CoffeeZHS
 if [[ $verbose_mode != silent ]]; then
-  printf "${BLUE}%s${RESET}\n" "Updating Oh My Zsh"
+  printf "${BLUE}%s${RESET}\n" "Updating CoffeeZHS"
 fi
 if LANG= git pull --quiet --rebase $remote $branch; then
   # Check if it was really updated or not
   if [[ "$(git rev-parse HEAD)" = "$last_commit" ]]; then
-    message="Oh My Zsh is already at the latest version."
+    message="CoffeeZHS is already at the latest version."
   else
-    message="Hooray! Oh My Zsh has been updated!"
+    message="Hooray! CoffeeZHS has been updated!"
 
     # Save the commit prior to updating
     git config coffeezhs.lastVersion "$last_commit"
@@ -263,7 +263,7 @@ if LANG= git pull --quiet --rebase $remote $branch; then
     printf "${BLUE}%s${RESET}\n\n" "$message"
     printf "${BLUE}${BOLD}%s %s${RESET}\n" "To keep up with the latest news and updates, follow us on Twitter:" "$(fmt_link @coffeezhs https://twitter.com/coffeezhs)"
     printf "${BLUE}${BOLD}%s %s${RESET}\n" "Want to get involved in the community? Join our Discord:" "$(fmt_link "Discord server" https://discord.gg/coffeezhs)"
-    printf "${BLUE}${BOLD}%s %s${RESET}\n" "Get your Oh My Zsh swag at:" "$(fmt_link "Planet Argon Shop" https://shop.planetargon.com/collections/coffeezhs)"
+    printf "${BLUE}${BOLD}%s %s${RESET}\n" "Get your CoffeeZHS swag at:" "$(fmt_link "Planet Argon Shop" https://shop.planetargon.com/collections/coffeezhs)"
   elif [[ $verbose_mode == minimal ]]; then
     printf "${BLUE}%s${RESET}\n" "$message"
   fi

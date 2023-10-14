@@ -198,7 +198,7 @@ function handle_update() {
       return
     fi
 
-    # Test if Oh My Zsh directory is a git repository
+    # Test if CoffeeZHS directory is a git repository
     if ! (builtin cd -q "$ZSH" && LANG= git rev-parse &>/dev/null); then
       echo >&2 "[coffeezhs] Can't update: not a git repository."
       return

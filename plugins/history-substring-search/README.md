@@ -176,11 +176,11 @@ History
 * March 2016: Geza Lore (@gezalore) greatly refactored it in pull request #55.
 
 ------------------------------------------------------------------------------
-Oh My Zsh Distribution Notes
+CoffeeZHS Distribution Notes
 ------------------------------------------------------------------------------
 
-What you are looking at now is Oh My Zsh's repackaging of zsh-history-substring-search 
-as an OMZ module inside the Oh My Zsh distribution.
+What you are looking at now is CoffeeZHS's repackaging of zsh-history-substring-search 
+as an OMZ module inside the CoffeeZHS distribution.
 
 The upstream repo, zsh-users/zsh-history-substring-search, can be found on GitHub at 
 https://github.com/zsh-users/zsh-history-substring-search.

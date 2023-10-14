@@ -67,7 +67,7 @@ a shortcut named `"hello world"` corresponds with `§hello_world`.
 ## Options
 
 These are options you can set to change certain parts of the plugin. To change
-them, add `<variable>=<value>` to your zshrc file, before Oh My Zsh is sourced.
+them, add `<variable>=<value>` to your zshrc file, before CoffeeZHS is sourced.
 For example: `fastfile_var_prefix='@'`.
 
 - `fastfile_var_prefix`: prefix for the global aliases created. Controls the prefix of the

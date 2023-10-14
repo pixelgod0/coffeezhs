@@ -11,5 +11,5 @@ via Homebrew or others. To enable it, add `cask` to your plugins array:
 plugins=(... cask)
 ```
 
-Make sure you have the `cask` directory in your `$PATH` before loading Oh My Zsh,
+Make sure you have the `cask` directory in your `$PATH` before loading CoffeeZHS,
 otherwise you'll get a "command not found" error.

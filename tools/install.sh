@@ -12,14 +12,14 @@
 #   sh install.sh
 #
 # You can tweak the install behavior by setting variables when running the script. For
-# example, to change the path to the Oh My Zsh repository:
+# example, to change the path to the CoffeeZHS repository:
 #   ZSH=~/.zsh sh install.sh
 #
 # Respects the following environment variables:
 #   ZDOTDIR - path to Zsh dotfiles directory (default: unset). See [1][2]
 #             [1] https://zsh.sourceforge.io/Doc/Release/Parameters.html#index-ZDOTDIR
 #             [2] https://zsh.sourceforge.io/Doc/Release/Files.html#index-ZDOTDIR_002c-use-of
-#   ZSH     - path to the Oh My Zsh repository folder (default: $HOME/.coffeezhs)
+#   ZSH     - path to the CoffeeZHS repository folder (default: $HOME/.coffeezhs)
 #   REPO    - name of the GitHub repo to install from (default: coffeezhs/coffeezhs)
 #   REMOTE  - full remote URL of the git repo to install (default: GitHub via HTTPS)
 #   BRANCH  - branch to check out immediately after install (default: master)
@@ -281,7 +281,7 @@ setup_coffeezhs() {
   # precedence over umasks except for filesystems mounted with option "noacl".
   umask g-w,o-w
 
-  echo "${FMT_BLUE}Cloning Oh My Zsh...${FMT_RESET}"
+  echo "${FMT_BLUE}Cloning CoffeeZHS...${FMT_RESET}"
 
   command_exists git || {
     fmt_error "git is not installed"
@@ -350,7 +350,7 @@ setup_zshrc() {
     mv "$zdot/.zshrc" "$OLD_ZSHRC"
   fi
 
-  echo "${FMT_GREEN}Using the Oh My Zsh template file and adding it to $zdot/.zshrc.${FMT_RESET}"
+  echo "${FMT_GREEN}Using the CoffeeZHS template file and adding it to $zdot/.zshrc.${FMT_RESET}"
 
   # Modify $ZSH variable in .zshrc directory to use the literal $ZDOTDIR or $HOME
   omz="$ZSH"
@@ -471,7 +471,7 @@ print_success() {
   printf '%s░╚════╝░░╚════╝░╚═╝░░░░░╚═╝░░░░░╚══════╝╚══════╝╚══════╝╚═╝░░╚═╝╚═════╝%s\n' $FMT_RAINBOW $FMT_RESET
   printf '\n'
   printf '\n'
-  printf "%s %s %s\n" "Before you scream ${FMT_BOLD}${FMT_YELLOW}Oh My Zsh!${FMT_RESET} look over the" \
+  printf "%s %s %s\n" "Before you scream ${FMT_BOLD}${FMT_YELLOW}CoffeeZHS!${FMT_RESET} look over the" \
     "$(fmt_code "$(fmt_link ".zshrc" "file://$zdot/.zshrc" --text)")" \
     "file to select plugins, themes, and options."
   printf '\n'
@@ -515,7 +515,7 @@ exported. You have 3 options:
 
 1. Unset the ZSH variable when calling the installer:
    $(fmt_code "ZSH= sh install.sh")
-2. Install Oh My Zsh to a directory that doesn't exist yet:
+2. Install CoffeeZHS to a directory that doesn't exist yet:
    $(fmt_code "ZSH=path/to/new/coffeezhs/folder sh install.sh")
 3. (Caution) If the folder doesn't contain important information,
    you can just remove it with $(fmt_code "rm -r $ZSH")

@@ -49,7 +49,7 @@ plugins=(... mercurial)
   PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)$(hg_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
   ```
 
-You can also redefine additional vars used in the plugin (after Oh My Zsh is sourced):
+You can also redefine additional vars used in the plugin (after CoffeeZHS is sourced):
 
 ```zsh
 ZSH_THEME_HG_PROMPT_PREFIX="%{$fg_bold[magenta]%}hg:(%{$fg[red]%}"

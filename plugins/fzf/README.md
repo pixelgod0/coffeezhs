@@ -11,7 +11,7 @@ plugins=(... fzf)
 
 ## Settings
 
-All these settings should go in your zshrc file, before Oh My Zsh is sourced.
+All these settings should go in your zshrc file, before CoffeeZHS is sourced.
 
 ### `FZF_BASE`
 

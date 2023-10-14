@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-### SDKMAN Autocomplete for Oh My Zsh
+### SDKMAN Autocomplete for CoffeeZHS
 
 _sdk() {
 	case "${CURRENT}" in

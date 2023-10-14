@@ -37,5 +37,5 @@ else
   echo "No original zsh config found"
 fi
 
-echo "Thanks for trying out Oh My Zsh. It's been uninstalled."
+echo "Thanks for trying out CoffeeZHS. It's been uninstalled."
 echo "Don't forget to restart your terminal!"

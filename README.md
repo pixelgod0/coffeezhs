@@ -1,10 +1,10 @@
-<p align="center"><img src="https://coffeezhs.s3.amazonaws.com/omz-ansi-github.png" alt="Oh My Zsh"></p>
+<p align="center"><img src="https://coffeezhs.s3.amazonaws.com/omz-ansi-github.png" alt="CoffeeZHS"></p>
 
-Oh My Zsh is an open source, community-driven framework for managing your [zsh](https://www.zsh.org/) configuration.
+CoffeeZHS is an open source, community-driven framework for managing your [zsh](https://www.zsh.org/) configuration.
 
 Sounds boring. Let's try again.
 
-**Oh My Zsh will not make you a 10x developer...but you may feel like one.**
+**CoffeeZHS will not make you a 10x developer...but you may feel like one.**
 
 Once installed, your terminal shell will become the talk of the town _or your money back!_ With each keystroke in your command prompt, you'll take advantage of the hundreds of powerful plugins and beautiful themes. Strangers will come up to you in cafés and ask you, _"that is amazing! are you some sort of genius?"_
 
@@ -27,7 +27,7 @@ To learn more, visit [ohmyz.sh](https://ohmyz.sh), follow [@coffeezhs](https://t
   - [Prerequisites](#prerequisites)
   - [Basic Installation](#basic-installation)
     - [Manual Inspection](#manual-inspection)
-- [Using Oh My Zsh](#using-coffeezhs)
+- [Using CoffeeZHS](#using-coffeezhs)
   - [Plugins](#plugins)
     - [Enabling Plugins](#enabling-plugins)
     - [Using Plugins](#using-plugins)
@@ -47,8 +47,8 @@ To learn more, visit [ohmyz.sh](https://ohmyz.sh), follow [@coffeezhs](https://t
 - [Getting Updates](#getting-updates)
   - [Updates Verbosity](#updates-verbosity)
   - [Manual Updates](#manual-updates)
-- [Uninstalling Oh My Zsh](#uninstalling-coffeezhs)
-- [How Do I Contribute To Oh My Zsh?](#how-do-i-contribute-to-coffeezhs)
+- [Uninstalling CoffeeZHS](#uninstalling-coffeezhs)
+- [How Do I Contribute To CoffeeZHS?](#how-do-i-contribute-to-coffeezhs)
   - [Do Not Send Us Themes](#do-not-send-us-themes)
 - [Contributors](#contributors)
 - [Follow Us](#follow-us)
@@ -81,7 +81,7 @@ To learn more, visit [ohmyz.sh](https://ohmyz.sh), follow [@coffeezhs](https://t
 
 ### Basic Installation
 
-Oh My Zsh is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl`, `wget` or another similar tool.
+CoffeeZHS is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl`, `wget` or another similar tool.
 
 | Method    | Command                                                                                           |
 | :-------- | :------------------------------------------------------------------------------------------------ |
@@ -102,15 +102,15 @@ wget https://raw.githubusercontent.com/coffeezhs/coffeezhs/master/tools/install.
 sh install.sh
 ```
 
-## Using Oh My Zsh
+## Using CoffeeZHS
 
 ### Plugins
 
-Oh My Zsh comes with a shitload of plugins for you to take advantage of. You can take a look in the [plugins](https://github.com/coffeezhs/coffeezhs/tree/master/plugins) directory and/or the [wiki](https://github.com/coffeezhs/coffeezhs/wiki/Plugins) to see what's currently available.
+CoffeeZHS comes with a shitload of plugins for you to take advantage of. You can take a look in the [plugins](https://github.com/coffeezhs/coffeezhs/tree/master/plugins) directory and/or the [wiki](https://github.com/coffeezhs/coffeezhs/wiki/Plugins) to see what's currently available.
 
 #### Enabling Plugins
 
-Once you spot a plugin (or several) that you'd like to use with Oh My Zsh, you'll need to enable them in the `.zshrc` file. You'll find the zshrc file in your `$HOME` directory. Open it with your favorite text editor and you'll see a spot to list all the plugins you want to load.
+Once you spot a plugin (or several) that you'd like to use with CoffeeZHS, you'll need to enable them in the `.zshrc` file. You'll find the zshrc file in your `$HOME` directory. Open it with your favorite text editor and you'll see a spot to list all the plugins you want to load.
 
 ```sh
 vi ~/.zshrc
@@ -138,7 +138,7 @@ Each built-in plugin includes a **README**, documenting it. This README should s
 
 ### Themes
 
-We'll admit it. Early in the Oh My Zsh world, we may have gotten a bit too theme happy. We have over one hundred and fifty themes now bundled. Most of them have [screenshots](https://github.com/coffeezhs/coffeezhs/wiki/Themes) on the wiki (We are working on updating this!). Check them out!
+We'll admit it. Early in the CoffeeZHS world, we may have gotten a bit too theme happy. We have over one hundred and fifty themes now bundled. Most of them have [screenshots](https://github.com/coffeezhs/coffeezhs/wiki/Themes) on the wiki (We are working on updating this!). Check them out!
 
 #### Selecting A Theme
 
@@ -196,7 +196,7 @@ If you're the type that likes to get their hands dirty, these sections might res
 
 ### Advanced Installation
 
-Some users may want to manually install Oh My Zsh, or change the default path or other settings that
+Some users may want to manually install CoffeeZHS, or change the default path or other settings that
 the installer accepts (these settings are also documented at the top of the install script).
 
 #### Custom Directory
@@ -213,7 +213,7 @@ ZSH="$HOME/.dotfiles/coffeezhs" sh install.sh
 
 #### Unattended Install
 
-If you're running the Oh My Zsh install script as part of an automated install, you can pass the `--unattended`
+If you're running the CoffeeZHS install script as part of an automated install, you can pass the `--unattended`
 flag to the `install.sh` script. This will have the effect of not trying to change
 the default shell, and it also won't run `zsh` when the installation has finished.
 
@@ -276,7 +276,7 @@ You must log out from your user session and log back in to see this change.
 
 ##### 5. Initialize Your New Zsh Configuration <!-- omit in toc -->
 
-Once you open up a new terminal window, it should load zsh with Oh My Zsh's configuration.
+Once you open up a new terminal window, it should load zsh with CoffeeZHS's configuration.
 
 ### Installation Problems
 
@@ -291,13 +291,13 @@ If you want to override any of the default behaviors, just add a new file (endin
 
 If you have many functions that go well together, you can put them as a `XYZ.plugin.zsh` file in the `custom/plugins/` directory and then enable this plugin.
 
-If you would like to override the functionality of a plugin distributed with Oh My Zsh, create a plugin of the same name in the `custom/plugins/` directory and it will be loaded instead of the one in `plugins/`.
+If you would like to override the functionality of a plugin distributed with CoffeeZHS, create a plugin of the same name in the `custom/plugins/` directory and it will be loaded instead of the one in `plugins/`.
 
 ### Enable GNU ls In macOS And freeBSD Systems
 
 <a name="enable-gnu-ls"></a>
 
-The default behaviour in Oh My Zsh is to use BSD `ls` in macOS and freeBSD systems. If GNU `ls` is installed
+The default behaviour in CoffeeZHS is to use BSD `ls` in macOS and freeBSD systems. If GNU `ls` is installed
 (as `gls` command), you can choose to use it instead. To do it, you can use zstyle-based config before
 sourcing `coffeezhs.sh`:
 
@@ -311,8 +311,8 @@ _Note: this is not compatible with `DISABLE_LS_COLORS=true`_
 
 <a name="remove-directories-aliases"></a>
 
-If you want to skip default Oh My Zsh aliases (those defined in `lib/*` files) or plugin aliases,
-you can use the settings below in your `~/.zshrc` file, **before Oh My Zsh is loaded**. Note that
+If you want to skip default CoffeeZHS aliases (those defined in `lib/*` files) or plugin aliases,
+you can use the settings below in your `~/.zshrc` file, **before CoffeeZHS is loaded**. Note that
 there are many different ways to skip aliases, depending on your needs.
 
 ```sh
@@ -361,7 +361,7 @@ zstyle ':omz:lib:directories' aliases no
 
 ## Getting Updates
 
-By default, you will be prompted to check for updates every 2 weeks. You can choose other update modes by adding a line to your `~/.zshrc` file, **before Oh My Zsh is loaded**:
+By default, you will be prompted to check for updates every 2 weeks. You can choose other update modes by adding a line to your `~/.zshrc` file, **before CoffeeZHS is loaded**:
 
 1. Automatic update without confirmation prompt:
 
@@ -381,7 +381,7 @@ By default, you will be prompted to check for updates every 2 weeks. You can cho
    zstyle ':omz:update' mode disabled
    ```
 
-NOTE: you can control how often Oh My Zsh checks for updates with the following setting:
+NOTE: you can control how often CoffeeZHS checks for updates with the following setting:
 
 ```sh
 # This will check for updates every 7 days
@@ -412,13 +412,13 @@ omz update
 
 Magic! 🎉
 
-## Uninstalling Oh My Zsh
+## Uninstalling CoffeeZHS
 
-Oh My Zsh isn't for everyone. We'll miss you, but we want to make this an easy breakup.
+CoffeeZHS isn't for everyone. We'll miss you, but we want to make this an easy breakup.
 
 If you want to uninstall `coffeezhs`, just run `uninstall_oh_my_zsh` from the command-line. It will remove itself and revert your previous `bash` or `zsh` configuration.
 
-## How Do I Contribute To Oh My Zsh?
+## How Do I Contribute To CoffeeZHS?
 
 Before you participate in our delightful community, please read the [code of conduct](CODE_OF_CONDUCT.md).
 
@@ -434,7 +434,7 @@ We have (more than) enough themes for the time being. Please add your theme to t
 
 ## Contributors
 
-Oh My Zsh has a vibrant community of happy users and delightful contributors. Without all the time and help from our contributors, it wouldn't be so awesome.
+CoffeeZHS has a vibrant community of happy users and delightful contributors. Without all the time and help from our contributors, it wouldn't be so awesome.
 
 Thank you so much!
 
@@ -444,19 +444,19 @@ We're on social media:
 
 - [@coffeezhs](https://twitter.com/coffeezhs) on Twitter. You should follow it.
 - [Facebook](https://www.facebook.com/coffeezhs-296616263819290/) poke us.
-- [Instagram](https://www.instagram.com/_coffeezhs/) tag us in your post showing Oh My Zsh!
+- [Instagram](https://www.instagram.com/_coffeezhs/) tag us in your post showing CoffeeZHS!
 - [Discord](https://discord.gg/coffeezhs) to chat with us!
 
 ## Merchandise
 
-We have [stickers, shirts, and coffee mugs available](https://shop.planetargon.com/collections/coffeezhs?utm_source=github) for you to show off your love of Oh My Zsh. Again, you will become the talk of the town!
+We have [stickers, shirts, and coffee mugs available](https://shop.planetargon.com/collections/coffeezhs?utm_source=github) for you to show off your love of CoffeeZHS. Again, you will become the talk of the town!
 
 ## License
 
-Oh My Zsh is released under the [MIT license](LICENSE.txt).
+CoffeeZHS is released under the [MIT license](LICENSE.txt).
 
 ## About Planet Argon
 
 ![Planet Argon](https://pa-github-assets.s3.amazonaws.com/PARGON_logo_digital_COL-small.jpg)
 
-Oh My Zsh was started by the team at [Planet Argon](https://www.planetargon.com/?utm_source=github), a [Ruby on Rails development agency](http://www.planetargon.com/services/ruby-on-rails-development?utm_source=github). Check out our [other open source projects](https://www.planetargon.com/open-source?utm_source=github).
+CoffeeZHS was started by the team at [Planet Argon](https://www.planetargon.com/?utm_source=github), a [Ruby on Rails development agency](http://www.planetargon.com/services/ruby-on-rails-development?utm_source=github). Check out our [other open source projects](https://www.planetargon.com/open-source?utm_source=github).

@@ -1,4 +1,4 @@
-# docker-machine plugin for oh my zsh
+# docker-machine plugin for CoffeeZHS
 
 ### Usage
 
