@@ -90,7 +90,7 @@ function omz_diagnostic_dump() {
   builtin echo
   builtin echo Diagnostic dump file created at: "$outfile"
   builtin echo
-  builtin echo To share this with OMZ developers, post it as a gist on GitHub 
+  builtin echo To share this with omz developers, post it as a gist on GitHub 
   builtin echo at "https://gist.github.com" and share the link to the gist.
   builtin echo
   builtin echo "WARNING: This dump file contains all your zsh and omz configuration files,"
@@ -162,7 +162,7 @@ function _omz_diag_dump_one_big_text() {
   else
     ps -fT
   fi
-  builtin set | command grep -a '^\(ZSH\|plugins\|TERM\|LC_\|LANG\|precmd\|chpwd\|preexec\|FPATH\|TTY\|DISPLAY\|PATH\)\|OMZ'
+  builtin set | command grep -a '^\(ZSH\|plugins\|TERM\|LC_\|LANG\|precmd\|chpwd\|preexec\|FPATH\|TTY\|DISPLAY\|PATH\)\|omz'
   builtin echo
   #TODO: Should this include `env` instead of or in addition to `export`?
   builtin echo Exported:
@@ -257,7 +257,7 @@ function _omz_diag_dump_check_core_commands() {
   # Commands from modules should not be included.
   # (For back-compatibility, if any of these are newish, they should be removed,
   # or at least made conditional on the version of the current running zsh.)
-  # "history" is also excluded because OMZ is known to redefine that
+  # "history" is also excluded because omz is known to redefine that
   reserved_words=( do done esac then elif else fi for case if while function 
     repeat time until select coproc nocorrect foreach end '!' '[[' '{' '}' 
     )

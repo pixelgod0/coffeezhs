@@ -25,7 +25,7 @@ fi
 
 if [[ -z "$HOMEBREW_PREFIX" ]]; then
   # Maintain compatability with potential custom user profiles, where we had
-  # previously relied on always sourcing shellenv. OMZ plugins should not rely
+  # previously relied on always sourcing shellenv. omz plugins should not rely
   # on this to be defined due to out of order processing.
   export HOMEBREW_PREFIX="$(brew --prefix)"
 fi

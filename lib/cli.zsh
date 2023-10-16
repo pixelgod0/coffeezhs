@@ -141,7 +141,7 @@ function _omz::log {
   local logname=${3:-${${functrace[1]#_}%:*}}
 
   # Don't print anything if debug is not active
-  if [[ $logtype = debug && -z $_OMZ_DEBUG ]]; then
+  if [[ $logtype = debug && -z $_omz_DEBUG ]]; then
     return
   fi
 

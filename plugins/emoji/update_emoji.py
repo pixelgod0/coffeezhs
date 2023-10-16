@@ -1,6 +1,6 @@
 """
 Update Emoji.py
-Refeshes OMZ emoji database based on the latest Unicode spec
+Refeshes omz emoji database based on the latest Unicode spec
 """
 import re
 import json

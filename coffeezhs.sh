@@ -114,11 +114,11 @@ if [[ -z "$ZSH_COMPDUMP" ]]; then
   ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 fi
 
-# Construct zcompdump OMZ metadata
+# Construct zcompdump omz metadata
 zcompdump_revision="#omz revision: $(builtin cd -q "$ZSH"; git rev-parse HEAD 2>/dev/null)"
 zcompdump_fpath="#omz fpath: $fpath"
 
-# Delete the zcompdump file if OMZ zcompdump metadata changed
+# Delete the zcompdump file if omz zcompdump metadata changed
 if ! command grep -q -Fx "$zcompdump_revision" "$ZSH_COMPDUMP" 2>/dev/null \
    || ! command grep -q -Fx "$zcompdump_fpath" "$ZSH_COMPDUMP" 2>/dev/null; then
   command rm -f "$ZSH_COMPDUMP"

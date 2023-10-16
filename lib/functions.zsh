@@ -4,7 +4,7 @@ function zsh_stats() {
     | grep -v "./" | sort -nr | head -n 20 | column -c3 -s " " -t | nl
 }
 
-function uninstall_oh_my_zsh() {
+function uninstall coffeezhs() {
   command env ZSH="$ZSH" sh "$ZSH/tools/uninstall.sh"
 }
 

@@ -3,8 +3,8 @@
 # update-from-upstream.zsh
 #
 # This script updates the CoffeeZHS version of the zsh-history-substring-search
-# plugin from the independent upstream repo. This is to be run by OMZ developers
-# when they want to pull in new changes from upstream to OMZ. It is not run
+# plugin from the independent upstream repo. This is to be run by omz developers
+# when they want to pull in new changes from upstream to omz. It is not run
 # during normal use of the plugin.
 #
 # The official upstream repo is zsh-users/zsh-history-substring-search
@@ -52,7 +52,7 @@ print "upstream commit time: $upstream_commit_date"
 print "upstream commit date: $upstream_just_date"
 print
 
-# Copy the files over, using the OMZ plugin's names where needed
+# Copy the files over, using the omz plugin's names where needed
 cp -v "$upstream"/* .
 mv -v zsh-history-substring-search.zsh $plugin_basename.zsh
 mv -v zsh-history-substring-search.plugin.zsh $plugin_basename.plugin.zsh
@@ -62,13 +62,13 @@ if [[ $need_repo_cleanup == true ]]; then
 	rm -rf "$my_tempdir"
 fi
 
-# Do OMZ-specific edits
+# Do omz-specific edits
 
 print
-print "Updating files with OMZ-specific stuff"
+print "Updating files with omz-specific stuff"
 print
 
-# OMZ binds the keys as part of the plugin loading
+# omz binds the keys as part of the plugin loading
 
 cat >> $plugin_basename.plugin.zsh <<EOF
 
@@ -86,7 +86,7 @@ fi
 
 EOF
 
-# Tack OMZ-specific notes on to readme
+# Tack omz-specific notes on to readme
 
 thin_line="------------------------------------------------------------------------------"
 cat >> README.md <<EOF
@@ -96,7 +96,7 @@ CoffeeZHS Distribution Notes
 $thin_line
 
 What you are looking at now is CoffeeZHS's repackaging of zsh-history-substring-search 
-as an OMZ module inside the CoffeeZHS distribution.
+as an omz module inside the CoffeeZHS distribution.
 
 The upstream repo, $UPSTREAM_REPO, can be found on GitHub at 
 $upstream_github_url.
@@ -107,8 +107,8 @@ This downstream copy was last updated from the following upstream commit:
   Commit date:  $upstream_commit_date
 
 Everything above this section is a copy of the original upstream's README, so things
-may differ slightly when you're using this inside OMZ. In particular, you do not
-need to set up key bindings for the up and down arrows yourself in \`~/.zshrc\`; the OMZ 
+may differ slightly when you're using this inside omz. In particular, you do not
+need to set up key bindings for the up and down arrows yourself in \`~/.zshrc\`; the omz 
 plugin does that for you. You may still want to set up additional emacs- or vi-specific
 bindings as mentioned above.
 
@@ -123,7 +123,7 @@ Now you can check the results and commit like this:
 
   git add *
   git commit -m "history-substring-search: update to upstream version $upstream_just_date" \\
-      -m "Updates OMZ's copy to commit $upstream_sha from $UPSTREAM_REPO"
+      -m "Updates omz's copy to commit $upstream_sha from $UPSTREAM_REPO"
 
 EOF
 

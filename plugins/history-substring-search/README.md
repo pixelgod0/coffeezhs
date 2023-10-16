@@ -180,7 +180,7 @@ CoffeeZHS Distribution Notes
 ------------------------------------------------------------------------------
 
 What you are looking at now is CoffeeZHS's repackaging of zsh-history-substring-search 
-as an OMZ module inside the CoffeeZHS distribution.
+as an omz module inside the CoffeeZHS distribution.
 
 The upstream repo, zsh-users/zsh-history-substring-search, can be found on GitHub at 
 https://github.com/zsh-users/zsh-history-substring-search.
@@ -191,8 +191,8 @@ This downstream copy was last updated from the following upstream commit:
   Commit date:  2019-05-12 17:35:54 -0700
 
 Everything above this section is a copy of the original upstream's README, so things
-may differ slightly when you're using this inside OMZ. In particular, you do not
-need to set up key bindings for the up and down arrows yourself in `~/.zshrc`; the OMZ 
+may differ slightly when you're using this inside omz. In particular, you do not
+need to set up key bindings for the up and down arrows yourself in `~/.zshrc`; the omz 
 plugin does that for you. You may still want to set up additional emacs- or vi-specific
 bindings as mentioned above.
 
