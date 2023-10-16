@@ -20,20 +20,20 @@ plugins=(... keychain)
 shown below. By default, only the `gpg` agent is managed.
 
 ```zsh
-zstyle :omz:plugins:keychain agents gpg,ssh
+zstyle :czsh:plugins:keychain agents gpg,ssh
 ```
 
 To **load multiple identities** use the `identities` style, For example:
 
 ```zsh
-zstyle :omz:plugins:keychain identities id_ed25519 id_github 2C5879C2
+zstyle :czsh:plugins:keychain identities id_ed25519 id_github 2C5879C2
 ```
 
 **To pass additional options** to the `keychain` program, use the
 `options` style; for example:
 
 ```zsh
-zstyle :omz:plugins:keychain options --quiet
+zstyle :czsh:plugins:keychain options --quiet
 ```
 
 ## Credits

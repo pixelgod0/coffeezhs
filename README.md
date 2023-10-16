@@ -1,4 +1,4 @@
-<p align="center"><img src="https://coffeezhs.s3.amazonaws.com/omz-ansi-github.png" alt="CoffeeZHS"></p>
+<p align="center"><img src="https://coffeezhs.s3.amazonaws.com/czsh-ansi-github.png" alt="CoffeeZHS"></p>
 
 CoffeeZHS is an open source, community-driven framework for managing your [zsh](https://www.zsh.org/) configuration.
 
@@ -302,7 +302,7 @@ The default behaviour in CoffeeZHS is to use BSD `ls` in macOS and freeBSD syste
 sourcing `coffeezhs.sh`:
 
 ```zsh
-zstyle ':omz:lib:theme-and-appearance' gnu-ls yes
+zstyle ':czsh:lib:theme-and-appearance' gnu-ls yes
 ```
 
 _Note: this is not compatible with `DISABLE_LS_COLORS=true`_
@@ -317,37 +317,37 @@ there are many different ways to skip aliases, depending on your needs.
 
 ```sh
 # Skip all aliases, in lib files and enabled plugins
-zstyle ':omz:*' aliases no
+zstyle ':czsh:*' aliases no
 
 # Skip all aliases in lib files
-zstyle ':omz:lib:*' aliases no
+zstyle ':czsh:lib:*' aliases no
 # Skip only aliases defined in the directories.zsh lib file
-zstyle ':omz:lib:directories' aliases no
+zstyle ':czsh:lib:directories' aliases no
 
 # Skip all plugin aliases
-zstyle ':omz:plugins:*' aliases no
+zstyle ':czsh:plugins:*' aliases no
 # Skip only the aliases from the git plugin
-zstyle ':omz:plugins:git' aliases no
+zstyle ':czsh:plugins:git' aliases no
 ```
 
 You can combine these in other ways taking into account that more specific scopes takes precedence:
 
 ```sh
 # Skip all plugin aliases, except for the git plugin
-zstyle ':omz:plugins:*' aliases no
-zstyle ':omz:plugins:git' aliases yes
+zstyle ':czsh:plugins:*' aliases no
+zstyle ':czsh:plugins:git' aliases yes
 ```
 
 A previous version of this feature was using the setting below, which has been removed:
 
 ```sh
-zstyle ':omz:directories' aliases no
+zstyle ':czsh:directories' aliases no
 ```
 
 Instead, you can now use the following:
 
 ```sh
-zstyle ':omz:lib:directories' aliases no
+zstyle ':czsh:lib:directories' aliases no
 ```
 
 #### Notice <!-- omit in toc -->
@@ -366,28 +366,28 @@ By default, you will be prompted to check for updates every 2 weeks. You can cho
 1. Automatic update without confirmation prompt:
 
    ```sh
-   zstyle ':omz:update' mode auto
+   zstyle ':czsh:update' mode auto
    ```
 
 2. Just offer a reminder every few days, if there are updates available:
 
    ```sh
-   zstyle ':omz:update' mode reminder
+   zstyle ':czsh:update' mode reminder
    ```
 
 3. To disable automatic updates entirely:
 
    ```sh
-   zstyle ':omz:update' mode disabled
+   zstyle ':czsh:update' mode disabled
    ```
 
 NOTE: you can control how often CoffeeZHS checks for updates with the following setting:
 
 ```sh
 # This will check for updates every 7 days
-zstyle ':omz:update' frequency 7
+zstyle ':czsh:update' frequency 7
 # This will check for updates every time you open the terminal (not recommended)
-zstyle ':omz:update' frequency 0
+zstyle ':czsh:update' frequency 0
 ```
 
 ### Updates Verbosity
@@ -395,11 +395,11 @@ zstyle ':omz:update' frequency 0
 You can also limit the update verbosity with the following settings:
 
 ```sh
-zstyle ':omz:update' verbose default # default update prompt
+zstyle ':czsh:update' verbose default # default update prompt
 
-zstyle ':omz:update' verbose minimal # only few lines
+zstyle ':czsh:update' verbose minimal # only few lines
 
-zstyle ':omz:update' verbose silent # only errors
+zstyle ':czsh:update' verbose silent # only errors
 ```
 
 ### Manual Updates
@@ -407,7 +407,7 @@ zstyle ':omz:update' verbose silent # only errors
 If you'd like to update at any point in time (maybe someone just released a new plugin and you don't want to wait a week?) you just need to run:
 
 ```sh
-omz update
+czsh update
 ```
 
 Magic! 🎉

@@ -46,13 +46,13 @@ if [[ "$TERM_PROGRAM" == Apple_Terminal ]]; then
 fi
 
 # Runs before showing the prompt
-function omz_termsupport_precmd {
+function czsh_termsupport_precmd {
   [[ "${DISABLE_AUTO_TITLE:-}" != true ]] || return
   title "$ZSH_THEME_TERM_TAB_TITLE_IDLE" "$ZSH_THEME_TERM_TITLE_IDLE"
 }
 
 # Runs before executing the command
-function omz_termsupport_preexec {
+function czsh_termsupport_preexec {
   [[ "${DISABLE_AUTO_TITLE:-}" != true ]] || return
 
   emulate -L zsh
@@ -105,8 +105,8 @@ function omz_termsupport_preexec {
 autoload -Uz add-zsh-hook
 
 if [[ -z "$INSIDE_EMACS" || "$INSIDE_EMACS" = vterm ]]; then
-  add-zsh-hook precmd omz_termsupport_precmd
-  add-zsh-hook preexec omz_termsupport_preexec
+  add-zsh-hook precmd czsh_termsupport_precmd
+  add-zsh-hook preexec czsh_termsupport_preexec
 fi
 
 # Keep terminal emulator's current working directory correct,
@@ -144,11 +144,11 @@ esac
 #
 # Identifies the directory using a file: URI scheme, including
 # the host name to disambiguate local vs. remote paths.
-function omz_termsupport_cwd {
+function czsh_termsupport_cwd {
   # Percent-encode the host and path names.
   local URL_HOST URL_PATH
-  URL_HOST="$(omz_urlencode -P $HOST)" || return 1
-  URL_PATH="$(omz_urlencode -P $PWD)" || return 1
+  URL_HOST="$(czsh_urlencode -P $HOST)" || return 1
+  URL_PATH="$(czsh_urlencode -P $PWD)" || return 1
 
   # Konsole errors if the HOST is provided
   [[ -z "$KONSOLE_VERSION" ]] || URL_HOST=""
@@ -160,4 +160,4 @@ function omz_termsupport_cwd {
 # Use a precmd hook instead of a chpwd hook to avoid contaminating output
 # i.e. when a script or function changes directory without `cd -q`, chpwd
 # will be called the output may be swallowed by the script or function.
-add-zsh-hook precmd omz_termsupport_cwd
+add-zsh-hook precmd czsh_termsupport_cwd

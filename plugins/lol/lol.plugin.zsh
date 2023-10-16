@@ -30,7 +30,7 @@ alias iminurbase='finger'
 alias btw='nice'
 alias obtw='nohup'
 
-alias nomz='ps aux'
+alias nczsh='ps aux'
 alias nomnom='killall'
 
 alias byes='exit'

@@ -9,7 +9,7 @@
 0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
 0="${${(M)0:#/*}:-$PWD/$0}"
 
-_omz_emoji_plugin_dir="${0:h}"
+_czsh_emoji_plugin_dir="${0:h}"
 
 () {
 
@@ -17,8 +17,8 @@ local LC_ALL=en_US.UTF-8
 
 typeset -gAH emoji_skintone
 
-source "$_omz_emoji_plugin_dir/emoji-char-definitions.zsh"
-unset _omz_emoji_plugin_dir
+source "$_czsh_emoji_plugin_dir/emoji-char-definitions.zsh"
+unset _czsh_emoji_plugin_dir
 
 # These additional emoji are not in the definition file, but are useful in conjunction with it
 

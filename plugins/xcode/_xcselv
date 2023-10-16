@@ -2,7 +2,7 @@
 #autoload
 
 function _xcselv_compl_list_versions() {
-  _omz_xcode_list_versions short
+  _czsh_xcode_list_versions short
 }
 
 _arguments \

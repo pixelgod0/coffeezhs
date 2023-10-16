@@ -20,10 +20,10 @@ if [[ -z "$NVM_DIR" ]] || [[ ! -f "$NVM_DIR/nvm.sh" ]]; then
   return
 fi
 
-if zstyle -t ':omz:plugins:nvm' lazy && \
-  ! zstyle -t ':omz:plugins:nvm' autoload; then
+if zstyle -t ':czsh:plugins:nvm' lazy && \
+  ! zstyle -t ':czsh:plugins:nvm' autoload; then
   # Call nvm when first using nvm, node, npm, pnpm, yarn or other commands in lazy-cmd
-  zstyle -a ':omz:plugins:nvm' lazy-cmd nvm_lazy_cmd
+  zstyle -a ':czsh:plugins:nvm' lazy-cmd nvm_lazy_cmd
   eval "
     function nvm node npm npx pnpm yarn $nvm_lazy_cmd {
       unfunction nvm node npm npx pnpm yarn $nvm_lazy_cmd
@@ -39,12 +39,12 @@ fi
 
 # Autoload nvm when finding a .nvmrc file in the current directory
 # Adapted from: https://github.com/nvm-sh/nvm#zsh
-if zstyle -t ':omz:plugins:nvm' autoload; then
+if zstyle -t ':czsh:plugins:nvm' autoload; then
   function load-nvmrc {
     local node_version="$(nvm version)"
     local nvmrc_path="$(nvm_find_nvmrc)"
     local nvm_silent=""
-    zstyle -t ':omz:plugins:nvm' silent-autoload && nvm_silent="--silent"
+    zstyle -t ':czsh:plugins:nvm' silent-autoload && nvm_silent="--silent"
 
     if [[ -n "$nvmrc_path" ]]; then
       local nvmrc_node_version=$(nvm version $(cat "$nvmrc_path" | tr -dc '[:print:]'))

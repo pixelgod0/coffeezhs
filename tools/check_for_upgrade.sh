@@ -11,7 +11,7 @@ fi
 # - reminder: a reminder is shown to the user when it's time to update
 # - background-alpha: an experimental update-on-the-background option
 # - disabled: automatic update is turned off
-zstyle -s ':omz:update' mode update_mode || {
+zstyle -s ':czsh:update' mode update_mode || {
   update_mode=prompt
 
   # If the mode zstyle setting is not set, support old-style settings
@@ -108,7 +108,7 @@ EOD
 
 function update_coffeezhs() {
   local verbose_mode
-  zstyle -s ':omz:update' verbose verbose_mode || verbose_mode=default
+  zstyle -s ':czsh:update' verbose verbose_mode || verbose_mode=default
 
   if [[ "$update_mode" != background-alpha ]] \
     && LANG= ZSH="$ZSH" zsh -f "$ZSH/tools/upgrade.sh" -i -v $verbose_mode; then
@@ -192,7 +192,7 @@ function handle_update() {
     fi
 
     # Number of days before trying to update again
-    zstyle -s ':omz:update' frequency epoch_target || epoch_target=${UPDATE_ZSH_DAYS:-13}
+    zstyle -s ':czsh:update' frequency epoch_target || epoch_target=${UPDATE_ZSH_DAYS:-13}
     # Test if enough time has passed until the next update
     if (( ( $(current_epoch) - $LAST_EPOCH ) < $epoch_target )); then
       return
@@ -213,7 +213,7 @@ function handle_update() {
     # If in reminder mode or user has typed input, show reminder and exit
     if [[ "$update_mode" = reminder ]] || { [[ "$update_mode" != background-alpha ]] && has_typed_input }; then
       printf '\r\e[0K' # move cursor to first column and clear whole line
-      echo "[coffeezhs] It's time to update! You can do that by running \`omz update\`"
+      echo "[coffeezhs] It's time to update! You can do that by running \`czsh update\`"
       return 0
     fi
 
@@ -231,7 +231,7 @@ function handle_update() {
     case "$option" in
       [yY$'\n']) update_coffeezhs ;;
       [nN]) update_last_updated_file ;&
-      *) echo "[coffeezhs] You can update manually by running \`omz update\`" ;;
+      *) echo "[coffeezhs] You can update manually by running \`czsh update\`" ;;
     esac
   }
 
@@ -243,19 +243,19 @@ case "$update_mode" in
   background-alpha)
     autoload -Uz add-zsh-hook
 
-    _omz_bg_update() {
+    _czsh_bg_update() {
       # do the update in a subshell
       (handle_update) &|
 
       # register update results function
-      add-zsh-hook precmd _omz_bg_update_status
+      add-zsh-hook precmd _czsh_bg_update_status
 
       # deregister background function
-      add-zsh-hook -d precmd _omz_bg_update
-      unset -f _omz_bg_update
+      add-zsh-hook -d precmd _czsh_bg_update
+      unset -f _czsh_bg_update
     }
 
-    _omz_bg_update_status() {
+    _czsh_bg_update_status() {
       {
         local LAST_EPOCH EXIT_STATUS ERROR
         if [[ ! -f "$ZSH_CACHE_DIR"/.zsh-update ]]; then
@@ -282,13 +282,13 @@ case "$update_mode" in
           update_last_updated_file
 
           # deregister background function
-          add-zsh-hook -d precmd _omz_bg_update_status
-          unset -f _omz_bg_update_status
+          add-zsh-hook -d precmd _czsh_bg_update_status
+          unset -f _czsh_bg_update_status
         fi
       }
     }
 
-    add-zsh-hook precmd _omz_bg_update
+    add-zsh-hook precmd _czsh_bg_update
     ;;
   *)
     handle_update ;;

@@ -103,7 +103,7 @@ function frontend() {
 
   # build search url:
   # join arguments passed with '%20', then append to search context URL
-  url="${urls[$1]}$(omz_urlencode -P ${@[2,-1]})"
+  url="${urls[$1]}$(czsh_urlencode -P ${@[2,-1]})"
 
   echo "Opening $url ..."
 

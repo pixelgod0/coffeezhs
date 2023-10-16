@@ -36,7 +36,7 @@ If the current completion does not work well for you, you can enable legacy comp
 following setting. See https://github.com/coffeezhs/coffeezhs/issues/11789 for more information.
 
 ```zsh
-zstyle ':omz:plugins:docker' legacy-completion yes
+zstyle ':czsh:plugins:docker' legacy-completion yes
 ```
 
 ## Aliases

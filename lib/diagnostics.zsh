@@ -2,13 +2,13 @@
 #
 # Diagnostic and debugging support for coffeezhs
 
-# omz_diagnostic_dump()
+# czsh_diagnostic_dump()
 #
 # Author: Andrew Janke <andrew@apjanke.net>
 #
 # Usage:
 #
-# omz_diagnostic_dump [-v] [-V] [file]
+# czsh_diagnostic_dump [-v] [-V] [file]
 #
 # NOTE: This is a work in progress. Its interface and behavior are going to change,
 # and probably in non-back-compatible ways.
@@ -40,7 +40,7 @@
 #
 # -v    Increase the verbosity of the dump output. May be specified multiple times.
 #       Verbosity levels:
-#        0 - Basic info, shell state, omz configuration, git state
+#        0 - Basic info, shell state, czsh configuration, git state
 #        1 - (default) Adds key binding info and configuration file contents
 #        2 - Adds zcompdump file contents
 #
@@ -55,16 +55,16 @@
 
 autoload -Uz is-at-least
 
-function omz_diagnostic_dump() {
+function czsh_diagnostic_dump() {
   emulate -L zsh
 
   builtin echo "Generating diagnostic dump; please be patient..."
   
-  local thisfcn=omz_diagnostic_dump
+  local thisfcn=czsh_diagnostic_dump
   local -A opts
   local opt_verbose opt_noverbose opt_outfile
   local timestamp=$(date +%Y%m%d-%H%M%S)
-  local outfile=omz_diagdump_$timestamp.txt
+  local outfile=czsh_diagdump_$timestamp.txt
   builtin zparseopts -A opts -D -- "v+=opt_verbose" "V+=opt_noverbose"
   local verbose n_verbose=${#opt_verbose} n_noverbose=${#opt_noverbose}
   (( verbose = 1 + n_verbose - n_noverbose ))
@@ -82,7 +82,7 @@ function omz_diagnostic_dump() {
 
   # Always write directly to a file so terminal escape sequences are
   # captured cleanly
-  _omz_diag_dump_one_big_text &> "$outfile"
+  _czsh_diag_dump_one_big_text &> "$outfile"
   if [[ $? != 0 ]]; then
     builtin echo "$thisfcn: error while creating diagnostic dump; see $outfile for details"
   fi
@@ -90,16 +90,16 @@ function omz_diagnostic_dump() {
   builtin echo
   builtin echo Diagnostic dump file created at: "$outfile"
   builtin echo
-  builtin echo To share this with omz developers, post it as a gist on GitHub 
+  builtin echo To share this with czsh developers, post it as a gist on GitHub 
   builtin echo at "https://gist.github.com" and share the link to the gist.
   builtin echo
-  builtin echo "WARNING: This dump file contains all your zsh and omz configuration files,"
+  builtin echo "WARNING: This dump file contains all your zsh and czsh configuration files,"
   builtin echo "so don't share it publicly if there's sensitive information in them."
   builtin echo
 
 }
 
-function _omz_diag_dump_one_big_text() {
+function _czsh_diag_dump_one_big_text() {
   local program programs progfile md5
 
   builtin echo coffeezhs diagnostic dump
@@ -115,7 +115,7 @@ function _omz_diag_dump_one_big_text() {
   builtin echo User: $USERNAME
   builtin echo umask: $(umask)
   builtin echo
-  _omz_diag_dump_os_specific_version
+  _czsh_diag_dump_os_specific_version
   builtin echo
 
   # Installed programs
@@ -150,7 +150,7 @@ function _omz_diag_dump_one_big_text() {
   builtin echo
 
   # Core command definitions
-  _omz_diag_dump_check_core_commands || return 1
+  _czsh_diag_dump_check_core_commands || return 1
   builtin echo  
 
   # ZSH Process state
@@ -162,7 +162,7 @@ function _omz_diag_dump_one_big_text() {
   else
     ps -fT
   fi
-  builtin set | command grep -a '^\(ZSH\|plugins\|TERM\|LC_\|LANG\|precmd\|chpwd\|preexec\|FPATH\|TTY\|DISPLAY\|PATH\)\|omz'
+  builtin set | command grep -a '^\(ZSH\|plugins\|TERM\|LC_\|LANG\|precmd\|chpwd\|preexec\|FPATH\|TTY\|DISPLAY\|PATH\)\|czsh'
   builtin echo
   #TODO: Should this include `env` instead of or in addition to `export`?
   builtin echo Exported:
@@ -232,7 +232,7 @@ function _omz_diag_dump_one_big_text() {
   builtin echo
   if [[ $verbose -ge 1 ]]; then
     for cfgfile in $cfgfiles; do
-      _omz_diag_dump_echo_file_w_header $cfgfile
+      _czsh_diag_dump_echo_file_w_header $cfgfile
     done
   fi
   builtin echo
@@ -242,13 +242,13 @@ function _omz_diag_dump_one_big_text() {
   dumpfiles=( $zdotdir/.zcompdump*(N) )
   if [[ $verbose -ge 2 ]]; then
     for dumpfile in $dumpfiles; do
-      _omz_diag_dump_echo_file_w_header $dumpfile
+      _czsh_diag_dump_echo_file_w_header $dumpfile
     done
   fi
 
 }
 
-function _omz_diag_dump_check_core_commands() {
+function _czsh_diag_dump_check_core_commands() {
   builtin echo "Core command check:"
   local redefined name builtins externals reserved_words
   redefined=()
@@ -257,7 +257,7 @@ function _omz_diag_dump_check_core_commands() {
   # Commands from modules should not be included.
   # (For back-compatibility, if any of these are newish, they should be removed,
   # or at least made conditional on the version of the current running zsh.)
-  # "history" is also excluded because omz is known to redefine that
+  # "history" is also excluded because czsh is known to redefine that
   reserved_words=( do done esac then elif else fi for case if while function 
     repeat time until select coproc nocorrect foreach end '!' '[[' '{' '}' 
     )
@@ -307,7 +307,7 @@ function _omz_diag_dump_check_core_commands() {
 
 }
 
-function _omz_diag_dump_echo_file_w_header() {
+function _czsh_diag_dump_echo_file_w_header() {
   local file=$1
   if [[ ( -f $file || -h $file ) ]]; then
     builtin echo "========== $file =========="
@@ -326,7 +326,7 @@ function _omz_diag_dump_echo_file_w_header() {
   fi
 }
 
-function _omz_diag_dump_os_specific_version() {
+function _czsh_diag_dump_os_specific_version() {
   local osname osver version_file version_files
   case "$OSTYPE" in
     darwin*)

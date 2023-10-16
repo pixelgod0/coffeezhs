@@ -248,7 +248,7 @@ if LANG= git pull --quiet --rebase $remote $branch; then
     fi
 
     if [[ $verbose_mode != silent ]]; then
-      printf "${BLUE}%s \`${BOLD}%s${RESET}${BLUE}\`${RESET}\n" "You can see the changelog with" "omz changelog"
+      printf "${BLUE}%s \`${BOLD}%s${RESET}${BLUE}\`${RESET}\n" "You can see the changelog with" "czsh changelog"
     fi
   fi
 

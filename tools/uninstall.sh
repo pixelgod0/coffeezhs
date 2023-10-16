@@ -22,7 +22,7 @@ if [ -d ~/.coffeezhs ]; then
 fi
 
 if [ -e ~/.zshrc ]; then
-  ZSHRC_SAVE=~/.zshrc.omz-uninstalled-$(date +%Y-%m-%d_%H-%M-%S)
+  ZSHRC_SAVE=~/.zshrc.czsh-uninstalled-$(date +%Y-%m-%d_%H-%M-%S)
   echo "Found ~/.zshrc -- Renaming to ${ZSHRC_SAVE}"
   mv ~/.zshrc "${ZSHRC_SAVE}"
 fi

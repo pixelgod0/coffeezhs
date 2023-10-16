@@ -1,5 +1,5 @@
 ## History wrapper
-function omz_history {
+function czsh_history {
   local clear list
   zparseopts -E c=clear l=list
 
@@ -19,11 +19,11 @@ function omz_history {
 
 # Timestamp format
 case ${HIST_STAMPS-} in
-  "mm/dd/yyyy") alias history='omz_history -f' ;;
-  "dd.mm.yyyy") alias history='omz_history -E' ;;
-  "yyyy-mm-dd") alias history='omz_history -i' ;;
-  "") alias history='omz_history' ;;
-  *) alias history="omz_history -t '$HIST_STAMPS'" ;;
+  "mm/dd/yyyy") alias history='czsh_history -f' ;;
+  "dd.mm.yyyy") alias history='czsh_history -E' ;;
+  "yyyy-mm-dd") alias history='czsh_history -i' ;;
+  "") alias history='czsh_history' ;;
+  *) alias history="czsh_history -t '$HIST_STAMPS'" ;;
 esac
 
 ## History file configuration

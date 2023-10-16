@@ -1,15 +1,15 @@
 # ANSI formatting function (\033[<code>m)
 # 0: reset, 1: bold, 4: underline, 22: no bold, 24: no underline, 31: red, 33: yellow
-omz_f() {
+czsh_f() {
   [ $# -gt 0 ] || return
   IFS=";" printf "\033[%sm" $*
 }
 # If stdout is not a terminal ignore all formatting
-[ -t 1 ] || omz_f() { :; }
+[ -t 1 ] || czsh_f() { :; }
 
 # Protect against non-zsh execution of Oh My Zsh (use POSIX syntax here)
 [ -n "$ZSH_VERSION" ] || {
-  omz_ptree() {
+  czsh_ptree() {
     # Get process tree of the current process
     pid=$$; pids="$pid"
     while [ ${pid-0} -ne 1 ] && ppid=$(ps -e -o pid,ppid | awk "\$1 == $pid { print \$2 }"); do
@@ -28,11 +28,11 @@ omz_f() {
 
   {
     shell=$(ps -o pid,comm | awk "\$1 == $$ { print \$2 }")
-    printf "$(omz_f 1 31)Error:$(omz_f 22) Oh My Zsh can't be loaded from: $(omz_f 1)${shell}$(omz_f 22). "
-    printf "You need to run $(omz_f 1)zsh$(omz_f 22) instead.$(omz_f 0)\n"
-    printf "$(omz_f 33)Here's the process tree:$(omz_f 22)\n\n"
-    omz_ptree
-    printf "$(omz_f 0)\n"
+    printf "$(czsh_f 1 31)Error:$(czsh_f 22) Oh My Zsh can't be loaded from: $(czsh_f 1)${shell}$(czsh_f 22). "
+    printf "You need to run $(czsh_f 1)zsh$(czsh_f 22) instead.$(czsh_f 0)\n"
+    printf "$(czsh_f 33)Here's the process tree:$(czsh_f 22)\n\n"
+    czsh_ptree
+    printf "$(czsh_f 0)\n"
   } >&2
 
   return 1
@@ -41,11 +41,11 @@ omz_f() {
 # Check if in emulation mode, if so early return
 # https://github.com/coffeezhs/coffeezhs/issues/11686
 [[ "$(emulate)" = zsh ]] || {
-  printf "$(omz_f 1 31)Error:$(omz_f 22) Oh My Zsh can't be loaded in \`$(emulate)\` emulation mode.$(omz_f 0)\n" >&2
+  printf "$(czsh_f 1 31)Error:$(czsh_f 22) Oh My Zsh can't be loaded in \`$(emulate)\` emulation mode.$(czsh_f 0)\n" >&2
   return 1
 }
 
-unset -f omz_f
+unset -f czsh_f
 
 # If ZSH is not defined, use the current script's directory.
 [[ -z "$ZSH" ]] && export ZSH="${${(%):-%x}:a:h}"
@@ -114,11 +114,11 @@ if [[ -z "$ZSH_COMPDUMP" ]]; then
   ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 fi
 
-# Construct zcompdump omz metadata
-zcompdump_revision="#omz revision: $(builtin cd -q "$ZSH"; git rev-parse HEAD 2>/dev/null)"
-zcompdump_fpath="#omz fpath: $fpath"
+# Construct zcompdump czsh metadata
+zcompdump_revision="#czsh revision: $(builtin cd -q "$ZSH"; git rev-parse HEAD 2>/dev/null)"
+zcompdump_fpath="#czsh fpath: $fpath"
 
-# Delete the zcompdump file if omz zcompdump metadata changed
+# Delete the zcompdump file if czsh zcompdump metadata changed
 if ! command grep -q -Fx "$zcompdump_revision" "$ZSH_COMPDUMP" 2>/dev/null \
    || ! command grep -q -Fx "$zcompdump_fpath" "$ZSH_COMPDUMP" 2>/dev/null; then
   command rm -f "$ZSH_COMPDUMP"
@@ -155,7 +155,7 @@ if command mkdir "${ZSH_COMPDUMP}.lock" 2>/dev/null; then
   command rm -rf "$ZSH_COMPDUMP.zwc.old" "${ZSH_COMPDUMP}.lock" 
 fi
 
-_omz_source() {
+_czsh_source() {
   local context filepath="$1"
 
   # Construct zstyle context based on path
@@ -165,7 +165,7 @@ _omz_source() {
   esac
 
   local disable_aliases=0
-  zstyle -T ":omz:${context}" aliases || disable_aliases=1
+  zstyle -T ":czsh:${context}" aliases || disable_aliases=1
 
   # Back up alias names prior to sourcing
   local -A aliases_pre galiases_pre
@@ -199,13 +199,13 @@ _omz_source() {
 # Load all of the lib files in ~/coffeezhs/lib that end in .zsh
 # TIP: Add files you don't want in git to .gitignore
 for lib_file ("$ZSH"/lib/*.zsh); do
-  _omz_source "lib/${lib_file:t}"
+  _czsh_source "lib/${lib_file:t}"
 done
 unset lib_file
 
 # Load all of the plugins that were defined in ~/.zshrc
 for plugin ($plugins); do
-  _omz_source "plugins/$plugin/$plugin.plugin.zsh"
+  _czsh_source "plugins/$plugin/$plugin.plugin.zsh"
 done
 unset plugin
 

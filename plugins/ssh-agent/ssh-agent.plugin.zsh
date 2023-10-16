@@ -15,10 +15,10 @@ function _start_agent() {
 
   # Set a maximum lifetime for identities added to ssh-agent
   local lifetime
-  zstyle -s :omz:plugins:ssh-agent lifetime lifetime
+  zstyle -s :czsh:plugins:ssh-agent lifetime lifetime
 
   # start ssh-agent and setup environment
-  zstyle -t :omz:plugins:ssh-agent quiet || echo >&2 "Starting ssh-agent ..."
+  zstyle -t :czsh:plugins:ssh-agent quiet || echo >&2 "Starting ssh-agent ..."
   ssh-agent -s ${lifetime:+-t} ${lifetime} | sed '/^echo/d' >! "$ssh_env_cache"
   chmod 600 "$ssh_env_cache"
   . "$ssh_env_cache" > /dev/null
@@ -27,7 +27,7 @@ function _start_agent() {
 function _add_identities() {
   local id file line sig lines
   local -a identities loaded_sigs loaded_ids not_loaded
-  zstyle -a :omz:plugins:ssh-agent identities identities
+  zstyle -a :czsh:plugins:ssh-agent identities identities
 
   # check for .ssh folder presence
   if [[ ! -d "$HOME/.ssh" ]]; then
@@ -70,14 +70,14 @@ function _add_identities() {
 
   # pass extra arguments to ssh-add
   local args
-  zstyle -a :omz:plugins:ssh-agent ssh-add-args args
+  zstyle -a :czsh:plugins:ssh-agent ssh-add-args args
 
   # if ssh-agent quiet mode, pass -q to ssh-add
-  zstyle -t :omz:plugins:ssh-agent quiet && args=(-q $args)
+  zstyle -t :czsh:plugins:ssh-agent quiet && args=(-q $args)
 
   # use user specified helper to ask for password (ksshaskpass, etc)
   local helper
-  zstyle -s :omz:plugins:ssh-agent helper helper
+  zstyle -s :czsh:plugins:ssh-agent helper helper
 
   if [[ -n "$helper" ]]; then
     if [[ -z "${commands[$helper]}" ]]; then
@@ -92,7 +92,7 @@ function _add_identities() {
 }
 
 # Add a nifty symlink for screen/tmux if agent forwarding is enabled
-if zstyle -t :omz:plugins:ssh-agent agent-forwarding \
+if zstyle -t :czsh:plugins:ssh-agent agent-forwarding \
    && [[ -n "$SSH_AUTH_SOCK" && ! -L "$SSH_AUTH_SOCK" ]]; then
   ln -sf "$SSH_AUTH_SOCK" /tmp/ssh-agent-$USERNAME-screen
 else
@@ -100,7 +100,7 @@ else
 fi
 
 # Don't add identities if lazy-loading is enabled
-if ! zstyle -t :omz:plugins:ssh-agent lazy; then
+if ! zstyle -t :czsh:plugins:ssh-agent lazy; then
   _add_identities
 fi
 

@@ -14,9 +14,9 @@ alias-finder() {
     esac
   done
 
-  zstyle -t ':omz:plugins:alias-finder' longer && longer=true
-  zstyle -t ':omz:plugins:alias-finder' exact && exact=true
-  zstyle -t ':omz:plugins:alias-finder' cheaper && cheaper=true
+  zstyle -t ':czsh:plugins:alias-finder' longer && longer=true
+  zstyle -t ':czsh:plugins:alias-finder' exact && exact=true
+  zstyle -t ':czsh:plugins:alias-finder' cheaper && cheaper=true
 
   # format cmd for grep
   ## - replace newlines with spaces
@@ -53,7 +53,7 @@ alias-finder() {
 
 preexec_alias-finder() {
   # TODO: Remove backward compatibility (other than zstyle form)
-  zstyle -t ':omz:plugins:alias-finder' autoload && alias-finder $1 || if [[ $ZSH_ALIAS_FINDER_AUTOMATIC = true ]]; then
+  zstyle -t ':czsh:plugins:alias-finder' autoload && alias-finder $1 || if [[ $ZSH_ALIAS_FINDER_AUTOMATIC = true ]]; then
     alias-finder $1
   fi
 }

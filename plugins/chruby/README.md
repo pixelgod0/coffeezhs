@@ -16,6 +16,6 @@ If you'd prefer to specify an explicit path to load chruby from
 you can set variables like so:
 
 ```zsh
-zstyle :omz:plugins:chruby path /local/path/to/chruby.sh
-zstyle :omz:plugins:chruby auto /local/path/to/auto.sh
+zstyle :czsh:plugins:chruby path /local/path/to/chruby.sh
+zstyle :czsh:plugins:chruby auto /local/path/to/auto.sh
 ```

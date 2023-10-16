@@ -1,4 +1,4 @@
-if zstyle -T ':omz:plugins:yarn' global-path; then
+if zstyle -T ':czsh:plugins:yarn' global-path; then
   # Skip yarn call if default global bin dir exists
   [[ -d "$HOME/.yarn/bin" ]] && bindir="$HOME/.yarn/bin" || bindir="$(yarn global bin 2>/dev/null)"
 

@@ -38,5 +38,5 @@ This plugin provides some features to simplify the use of Pipenv while working o
 If you want to disable the shell activation and deactivation feature, add the following style to your `.zshrc` before sourcing `coffeezhs.sh`:
 
 ```zsh
-zstyle ':omz:plugins:pipenv' auto-shell no
+zstyle ':czsh:plugins:pipenv' auto-shell no
 ```

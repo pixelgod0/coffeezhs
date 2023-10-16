@@ -11,13 +11,13 @@ function {
 	local _keychain_env_sh_gpg
 
 	# load agents to start.
-	zstyle -s :omz:plugins:keychain agents agents
+	zstyle -s :czsh:plugins:keychain agents agents
 
 	# load identities to manage.
-	zstyle -a :omz:plugins:keychain identities identities
+	zstyle -a :czsh:plugins:keychain identities identities
 
 	# load additional options
-	zstyle -a :omz:plugins:keychain options options
+	zstyle -a :czsh:plugins:keychain options options
 
 	# start keychain...
 	keychain ${^options:-} --agents ${agents:-gpg} ${^identities} --host $SHORT_HOST

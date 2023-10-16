@@ -35,7 +35,7 @@ plugins=(... lol)
 | `letcat`     | `git checkout`                                                  |
 | `moar`       | `more`                                                          |
 | `nomnom`     | `killall`                                                       |
-| `nomz`       | `ps aux`                                                        |
+| `nczsh`       | `ps aux`                                                        |
 | `nowai`      | `chmod`                                                         |
 | `oanward`    | `git commit -m`                                                 |
 | `obtw`       | `nohup`                                                         |

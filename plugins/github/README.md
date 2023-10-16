@@ -15,7 +15,7 @@ This plugin supports working with GitHub from the command line. It provides a fe
 
 ## Installation
 
-[Hub](https://github.com/github/hub) needs to be installed if you want to use it. On OS X with Homebrew, this can be done with `brew install hub`. The `hub` completion definition needs to be added to your `$FPATH` before initializing omz.
+[Hub](https://github.com/github/hub) needs to be installed if you want to use it. On OS X with Homebrew, this can be done with `brew install hub`. The `hub` completion definition needs to be added to your `$FPATH` before initializing czsh.
 
 The [`github` Ruby gem](https://github.com/defunkt/github-gem) needs to be installed if you want to use it.
 

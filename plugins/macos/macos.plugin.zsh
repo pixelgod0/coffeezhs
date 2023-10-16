@@ -16,7 +16,7 @@ function btrestart() {
   sudo kextload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
 }
 
-function _omz_macos_get_frontmost_app() {
+function _czsh_macos_get_frontmost_app() {
   osascript 2>/dev/null <<EOF
     tell application "System Events"
       name of first item of (every process whose frontmost is true)
@@ -29,7 +29,7 @@ function tab() {
   local command="cd \\\"$PWD\\\"; clear"
   (( $# > 0 )) && command="${command}; $*"
 
-  local the_app=$(_omz_macos_get_frontmost_app)
+  local the_app=$(_czsh_macos_get_frontmost_app)
 
   if [[ "$the_app" == 'Terminal' ]]; then
     # Discarding stdout to quash "tab N of window id XXX" output
@@ -82,7 +82,7 @@ function vsplit_tab() {
   local command="cd \\\"$PWD\\\"; clear"
   (( $# > 0 )) && command="${command}; $*"
 
-  local the_app=$(_omz_macos_get_frontmost_app)
+  local the_app=$(_czsh_macos_get_frontmost_app)
 
   if [[ "$the_app" == 'iTerm' ]]; then
     osascript <<EOF
@@ -130,7 +130,7 @@ function split_tab() {
   local command="cd \\\"$PWD\\\"; clear"
   (( $# > 0 )) && command="${command}; $*"
 
-  local the_app=$(_omz_macos_get_frontmost_app)
+  local the_app=$(_czsh_macos_get_frontmost_app)
 
   if [[ "$the_app" == 'iTerm' ]]; then
     osascript 2>/dev/null <<EOF

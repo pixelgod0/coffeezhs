@@ -29,7 +29,7 @@ svn_get_repo_name() {
   local info name
   info="${1:-$(LANG= svn info 2>/dev/null)}"
   name="$(sed -n 's/^Repository\ Root:\ .*\///p' <<< "$info")"
-  omz_urldecode "$name"
+  czsh_urldecode "$name"
 }
 
 svn_get_branch_name() {
@@ -49,7 +49,7 @@ svn_get_branch_name() {
       }
     }' <<< "$info"
   )
-  branch="$(omz_urldecode "$branch")"
+  branch="$(czsh_urldecode "$branch")"
 
   echo "${branch:-$(svn_get_repo_name "$info")}"
 }

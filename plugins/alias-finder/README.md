@@ -14,10 +14,10 @@ To enable it for every single command, set zstyle in your `~/.zshrc`.
 ```zsh
 # ~/.zshrc
 
-zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
-zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
-zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
-zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
+zstyle ':czsh:plugins:alias-finder' autoload yes # disabled by default
+zstyle ':czsh:plugins:alias-finder' longer yes # disabled by default
+zstyle ':czsh:plugins:alias-finder' exact yes # disabled by default
+zstyle ':czsh:plugins:alias-finder' cheaper yes # disabled by default
 ```
 
 As you can see, options are also available with zstyle.

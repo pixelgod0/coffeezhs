@@ -12,7 +12,7 @@ fi
 
 _PIPENV_COMPLETE=zsh_source pipenv >| "$ZSH_CACHE_DIR/completions/_pipenv" &|
 
-if zstyle -T ':omz:plugins:pipenv' auto-shell; then
+if zstyle -T ':czsh:plugins:pipenv' auto-shell; then
   # Automatic pipenv shell activation/deactivation
   _togglePipenvShell() {
     # deactivate shell if Pipfile doesn't exist and not in a subdir

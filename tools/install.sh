@@ -353,14 +353,14 @@ setup_zshrc() {
   echo "${FMT_GREEN}Using the CoffeeZHS template file and adding it to $zdot/.zshrc.${FMT_RESET}"
 
   # Modify $ZSH variable in .zshrc directory to use the literal $ZDOTDIR or $HOME
-  omz="$ZSH"
+  czsh="$ZSH"
   if [ -n "$ZDOTDIR" ] && [ "$ZDOTDIR" != "$HOME" ]; then
-    omz=$(echo "$omz" | sed "s|^$ZDOTDIR/|\$ZDOTDIR/|")
+    czsh=$(echo "$czsh" | sed "s|^$ZDOTDIR/|\$ZDOTDIR/|")
   fi
-  omz=$(echo "$omz" | sed "s|^$HOME/|\$HOME/|")
+  czsh=$(echo "$czsh" | sed "s|^$HOME/|\$HOME/|")
 
-  sed "s|^export ZSH=.*$|export ZSH=\"${omz}\"|" "$ZSH/templates/zshrc.zsh-template" > "$zdot/.zshrc-omztemp"
-  mv -f "$zdot/.zshrc-omztemp" "$zdot/.zshrc"
+  sed "s|^export ZSH=.*$|export ZSH=\"${czsh}\"|" "$ZSH/templates/zshrc.zsh-template" > "$zdot/.zshrc-czshtemp"
+  mv -f "$zdot/.zshrc-czshtemp" "$zdot/.zshrc"
 
   echo
 }

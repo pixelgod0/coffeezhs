@@ -71,7 +71,7 @@ PROMPT="$surfer  > "
 
 The emoji names and codes are sourced from Unicode Technical Report \#51, which provides information on emoji support in Unicode. It can be found at https://www.unicode.org/reports/tr51/index.html.
 
-The group definitions are added by this omz plugin. They are not based on external definitions.
+The group definitions are added by this czsh plugin. They are not based on external definitions.
 
 The values in the `$emoji*` maps are the emoji characters themselves, not escape sequences or other forms that require interpretation. They can be used in any context and do not require escape sequence support from commands like `echo` or `print`.
 

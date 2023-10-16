@@ -1,10 +1,10 @@
 ## load chruby from different locations
 
-_source-from-omz-settings() {
+_source-from-czsh-settings() {
   local _chruby_path _chruby_auto
   
-  zstyle -s :omz:plugins:chruby path _chruby_path || return 1
-  zstyle -s :omz:plugins:chruby auto _chruby_auto || return 1
+  zstyle -s :czsh:plugins:chruby path _chruby_path || return 1
+  zstyle -s :czsh:plugins:chruby auto _chruby_auto || return 1
 
   if [[ -r ${_chruby_path} ]]; then
     source ${_chruby_path}
@@ -44,7 +44,7 @@ _load-chruby-dirs() {
 }
 
 # Load chruby
-if _source-from-omz-settings; then
+if _source-from-czsh-settings; then
   _load-chruby-dirs
 elif [[ -r "/usr/local/share/chruby/chruby.sh" ]] ; then
   source /usr/local/share/chruby/chruby.sh
@@ -54,7 +54,7 @@ elif _source-from-homebrew; then
   _load-chruby-dirs
 fi
 
-unfunction _source-from-homebrew _source-from-omz-settings _load-chruby-dirs
+unfunction _source-from-homebrew _source-from-czsh-settings _load-chruby-dirs
 
 
 ## chruby utility functions and aliases
